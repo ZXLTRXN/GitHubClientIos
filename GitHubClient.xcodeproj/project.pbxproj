@@ -20,6 +20,7 @@
 		C232966B285C375100123C3D /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2329669285C375100123C3D /* AuthViewController.xib */; };
 		C274B58028618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B57F28618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift */; };
 		C274B5832861969C00794E21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C274B5852861969C00794E21 /* Localizable.strings */; };
+		C274B5882861AB7D00794E21 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B5872861AB7D00794E21 /* TextFieldWithPadding.swift */; };
 		F63C7C96692611E20D07B6CD /* Pods_GitHubClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674A311982F9324422C4D23C /* Pods_GitHubClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		C2329669285C375100123C3D /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		C274B57F28618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardAwareAnimatedConstraint.swift; path = /Users/ishevtsov/IOS/GitHubClient/GitHubClient/KeyboardAwareAnimatedConstraint.swift; sourceTree = "<absolute>"; };
 		C274B5842861969C00794E21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C274B5872861AB7D00794E21 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		CABB94727C49B8FCA7F3812C /* Pods-GitHubClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClientTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubClientTests/Pods-GitHubClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		F0559CA24D1242FC437AB02A /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,7 +135,7 @@
 		C2329637285C363C00123C3D /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
-				C274B57F28618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift */,
+				C274B5862861AB2900794E21 /* UIUtils */,
 				C232966C285C379800123C3D /* Auth */,
 				C2329638285C363C00123C3D /* AppDelegate.swift */,
 				C232963A285C363C00123C3D /* SceneDelegate.swift */,
@@ -169,6 +171,15 @@
 				C2329669285C375100123C3D /* AuthViewController.xib */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		C274B5862861AB2900794E21 /* UIUtils */ = {
+			isa = PBXGroup;
+			children = (
+				C274B57F28618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift */,
+				C274B5872861AB7D00794E21 /* TextFieldWithPadding.swift */,
+			);
+			path = UIUtils;
 			sourceTree = "<group>";
 		};
 		E0FF4C0D1A2635E209E34A22 /* Frameworks */ = {
@@ -423,6 +434,7 @@
 			files = (
 				C2329639285C363C00123C3D /* AppDelegate.swift in Sources */,
 				C274B58028618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift in Sources */,
+				C274B5882861AB7D00794E21 /* TextFieldWithPadding.swift in Sources */,
 				C232966A285C375100123C3D /* AuthViewController.swift in Sources */,
 				C232963B285C363C00123C3D /* SceneDelegate.swift in Sources */,
 			);
