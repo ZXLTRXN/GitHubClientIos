@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  GitHubClient
+
+ 
+  Created by Ilya Shevtsov on 21.06.2022.
+  
+*/
+
+"SIGN_IN_BUTTON" = "Sign In";
+"TOKEN_PLACEHOLDER" = "Personal access token";

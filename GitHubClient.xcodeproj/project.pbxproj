@@ -19,6 +19,7 @@
 		C232966A285C375100123C3D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2329668285C375100123C3D /* AuthViewController.swift */; };
 		C232966B285C375100123C3D /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2329669285C375100123C3D /* AuthViewController.xib */; };
 		C274B58028618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B57F28618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift */; };
+		C274B5832861969C00794E21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C274B5852861969C00794E21 /* Localizable.strings */; };
 		F63C7C96692611E20D07B6CD /* Pods_GitHubClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674A311982F9324422C4D23C /* Pods_GitHubClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		C2329668285C375100123C3D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C2329669285C375100123C3D /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		C274B57F28618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardAwareAnimatedConstraint.swift; path = /Users/ishevtsov/IOS/GitHubClient/GitHubClient/KeyboardAwareAnimatedConstraint.swift; sourceTree = "<absolute>"; };
+		C274B5842861969C00794E21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CABB94727C49B8FCA7F3812C /* Pods-GitHubClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClientTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubClientTests/Pods-GitHubClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		F0559CA24D1242FC437AB02A /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 				C2329641285C363E00123C3D /* Assets.xcassets */,
 				C2329643285C363E00123C3D /* LaunchScreen.storyboard */,
 				C2329646285C363E00123C3D /* Info.plist */,
+				C274B5852861969C00794E21 /* Localizable.strings */,
 			);
 			path = GitHubClient;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2329645285C363E00123C3D /* LaunchScreen.storyboard in Resources */,
+				C274B5832861969C00794E21 /* Localizable.strings in Resources */,
 				C232966B285C375100123C3D /* AuthViewController.xib in Resources */,
 				C2329642285C363E00123C3D /* Assets.xcassets in Resources */,
 			);
@@ -465,6 +469,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		C274B5852861969C00794E21 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C274B5842861969C00794E21 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -518,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -572,7 +584,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
