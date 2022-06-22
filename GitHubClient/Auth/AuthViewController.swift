@@ -13,7 +13,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tokenTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
-    let activityIndicator = MDCActivityIndicator()
+    @IBOutlet weak var activityIndicator: MDCActivityIndicator!
     
     let borderRadius: CGFloat = 8
     var editState: EditState = .valid
@@ -33,33 +33,35 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         signInButton.setTitle(signIn, for: .normal)
         signInButton.layer.cornerRadius = borderRadius
         signInButton.clipsToBounds = true
+        signInButton.setTitleColor(signInButton.backgroundColor, for: .disabled)
         
-        activityIndicator.sizeToFit()
-        activityIndicator.tintColor = UIColor(named: "DefaultBlue")
-        view.addSubview(activityIndicator)
+        let indicatorColor = UIColor(named: "DefaultBlue") ?? UIColor.blue
+        activityIndicator.cycleColors = [indicatorColor]
     }
     
     
     @IBAction func signInTapped(_ sender: UIButton) {
-        onLoading(started: true)
         if !validationEnabled {
             validationEnabled = true
             checkValidation(onValid: setIdleState)
         }
         if editState == .valid {
+            onLoading(started: true)
 //            appRepository.signIn(tokenTextField.text){
-//
+//            onLoading(started: false)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //            }
         }
-        onLoading(started: false)
+
     }
     
     func onLoading(started flag: Bool) {
         tokenTextField.isEnabled = !flag
         signInButton.isEnabled = !flag
         if flag {
+            activityIndicator.isHidden = false
             activityIndicator.startAnimating()
         } else {
+            activityIndicator.isHidden = true
             activityIndicator.stopAnimating()
         }
     }
@@ -72,7 +74,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         checkValidation(){
-            removeBorder(textField)
+            textField.removeBorder()
         }
     }
     
@@ -112,27 +114,15 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     
     private func setTokenErrorState(message: String) {
         let redColor = UIColor(named: "ErrorRed")
-        setBorderColor(tokenTextField, redColor?.cgColor)
+        tokenTextField.setBorderColor(redColor?.cgColor, borderRadius)
         errorLabel.isHidden = false
         errorLabel.text = message
     }
     
     private func setIdleState() {
-        setBorderColor(tokenTextField, UIColor(named: "DefaultBlue")?.cgColor)
+        tokenTextField.setBorderColor(UIColor(named: "DefaultBlue")?.cgColor, borderRadius)
         errorLabel.isHidden = true
         errorLabel.text = nil
-    }
-    
-    private func setBorderColor(_ sender: UITextField, _ color: CGColor?) {
-        sender.layer.borderWidth = 1.0
-        sender.layer.cornerRadius = borderRadius
-        sender.layer.borderColor = color
-    }
-    
-    private func removeBorder(_ sender: UITextField) {
-        sender.layer.borderWidth = 0.0
-        sender.layer.cornerRadius = 0.0
-        sender.layer.borderColor = UIColor.opaqueSeparator.cgColor
     }
     
 }
