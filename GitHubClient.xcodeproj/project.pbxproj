@@ -173,11 +173,9 @@
 		C2329637285C363C00123C3D /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
-				C20F531428642425007B024A /* DetailInfo */,
+				C2B0F43328645D0F005C9BFE /* ViewControllers */,
 				C20F530C28641C18007B024A /* Models */,
-				C274B58B2864106E00794E21 /* Repositories */,
 				C274B5862861AB2900794E21 /* UIUtils */,
-				C232966C285C379800123C3D /* Auth */,
 				C2329638285C363C00123C3D /* AppDelegate.swift */,
 				C232963A285C363C00123C3D /* SceneDelegate.swift */,
 				C2329641285C363E00123C3D /* Assets.xcassets */,
@@ -234,6 +232,16 @@
 				C274B591286411F500794E21 /* RepositoryTableViewCell.xib */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C2B0F43328645D0F005C9BFE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C232966C285C379800123C3D /* Auth */,
+				C274B58B2864106E00794E21 /* Repositories */,
+				C20F531428642425007B024A /* DetailInfo */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E0FF4C0D1A2635E209E34A22 /* Frameworks */ = {
