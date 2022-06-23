@@ -11,3 +11,4 @@
 "TOKEN_PLACEHOLDER" = "Personal access token";
 "INVALID_TOKEN" = "Invalid token";
 "EMPTY_TOKEN" = "Empty token";
+"REPOSITORIES_TITLE" = "Repositories";

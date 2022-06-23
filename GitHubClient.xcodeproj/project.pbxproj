@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1E37FF2187BE770A9E835D17 /* Pods_GitHubClient_GitHubClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBE254F3FBBC1838E73A38C /* Pods_GitHubClient_GitHubClientUITests.framework */; };
 		60BE38DDD156671B6301484F /* Pods_GitHubClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64FD68B4738A6E0DA1B31A98 /* Pods_GitHubClientTests.framework */; };
+		C20F530E28641C58007B024A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20F530D28641C58007B024A /* Repo.swift */; };
+		C20F531028641CDB007B024A /* RepoNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20F530F28641CDB007B024A /* RepoNetwork.swift */; };
+		C20F531228641EF8007B024A /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20F531128641EF8007B024A /* UIColorExtensions.swift */; };
 		C2329639285C363C00123C3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2329638285C363C00123C3D /* AppDelegate.swift */; };
 		C232963B285C363C00123C3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C232963A285C363C00123C3D /* SceneDelegate.swift */; };
 		C2329642285C363E00123C3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2329641285C363E00123C3D /* Assets.xcassets */; };
@@ -22,6 +25,10 @@
 		C274B5832861969C00794E21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C274B5852861969C00794E21 /* Localizable.strings */; };
 		C274B5882861AB7D00794E21 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B5872861AB7D00794E21 /* TextFieldWithPadding.swift */; };
 		C274B58A2863063F00794E21 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B5892863063F00794E21 /* TextFieldExtensions.swift */; };
+		C274B58E286410A200794E21 /* RepositoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B58C286410A200794E21 /* RepositoriesListViewController.swift */; };
+		C274B58F286410A200794E21 /* RepositoriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C274B58D286410A200794E21 /* RepositoriesListViewController.xib */; };
+		C274B592286411F500794E21 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B590286411F500794E21 /* RepositoryTableViewCell.swift */; };
+		C274B593286411F500794E21 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C274B591286411F500794E21 /* RepositoryTableViewCell.xib */; };
 		F63C7C96692611E20D07B6CD /* Pods_GitHubClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674A311982F9324422C4D23C /* Pods_GitHubClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +57,9 @@
 		709E0F6D536E2A503DB36673 /* Pods-GitHubClient-GitHubClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient-GitHubClientUITests.release.xcconfig"; path = "Target Support Files/Pods-GitHubClient-GitHubClientUITests/Pods-GitHubClient-GitHubClientUITests.release.xcconfig"; sourceTree = "<group>"; };
 		911D7975EB1D1354DD6A665D /* Pods-GitHubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.release.xcconfig"; path = "Target Support Files/Pods-GitHubClient/Pods-GitHubClient.release.xcconfig"; sourceTree = "<group>"; };
 		BCBE254F3FBBC1838E73A38C /* Pods_GitHubClient_GitHubClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubClient_GitHubClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20F530D28641C58007B024A /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		C20F530F28641CDB007B024A /* RepoNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoNetwork.swift; sourceTree = "<group>"; };
+		C20F531128641EF8007B024A /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C2329635285C363C00123C3D /* GitHubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2329638285C363C00123C3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C232963A285C363C00123C3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +77,10 @@
 		C274B5842861969C00794E21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C274B5872861AB7D00794E21 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		C274B5892863063F00794E21 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
+		C274B58C286410A200794E21 /* RepositoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewController.swift; sourceTree = "<group>"; };
+		C274B58D286410A200794E21 /* RepositoriesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesListViewController.xib; sourceTree = "<group>"; };
+		C274B590286411F500794E21 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		C274B591286411F500794E21 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		CABB94727C49B8FCA7F3812C /* Pods-GitHubClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClientTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubClientTests/Pods-GitHubClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		F0559CA24D1242FC437AB02A /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +126,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C20F530C28641C18007B024A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C20F530D28641C58007B024A /* Repo.swift */,
+				C20F530F28641CDB007B024A /* RepoNetwork.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C232962C285C363C00123C3D = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +160,8 @@
 		C2329637285C363C00123C3D /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
+				C20F530C28641C18007B024A /* Model */,
+				C274B58B2864106E00794E21 /* Repositories */,
 				C274B5862861AB2900794E21 /* UIUtils */,
 				C232966C285C379800123C3D /* Auth */,
 				C2329638285C363C00123C3D /* AppDelegate.swift */,
@@ -181,8 +206,20 @@
 				C274B57F28618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift */,
 				C274B5872861AB7D00794E21 /* TextFieldWithPadding.swift */,
 				C274B5892863063F00794E21 /* TextFieldExtensions.swift */,
+				C20F531128641EF8007B024A /* UIColorExtensions.swift */,
 			);
 			path = UIUtils;
+			sourceTree = "<group>";
+		};
+		C274B58B2864106E00794E21 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C274B58C286410A200794E21 /* RepositoriesListViewController.swift */,
+				C274B58D286410A200794E21 /* RepositoriesListViewController.xib */,
+				C274B590286411F500794E21 /* RepositoryTableViewCell.swift */,
+				C274B591286411F500794E21 /* RepositoryTableViewCell.xib */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		E0FF4C0D1A2635E209E34A22 /* Frameworks */ = {
@@ -305,7 +342,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2329645285C363E00123C3D /* LaunchScreen.storyboard in Resources */,
+				C274B58F286410A200794E21 /* RepositoriesListViewController.xib in Resources */,
 				C274B5832861969C00794E21 /* Localizable.strings in Resources */,
+				C274B593286411F500794E21 /* RepositoryTableViewCell.xib in Resources */,
 				C232966B285C375100123C3D /* AuthViewController.xib in Resources */,
 				C2329642285C363E00123C3D /* Assets.xcassets in Resources */,
 			);
@@ -435,10 +474,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20F531028641CDB007B024A /* RepoNetwork.swift in Sources */,
 				C2329639285C363C00123C3D /* AppDelegate.swift in Sources */,
 				C274B58A2863063F00794E21 /* TextFieldExtensions.swift in Sources */,
 				C274B58028618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift in Sources */,
+				C20F530E28641C58007B024A /* Repo.swift in Sources */,
+				C274B592286411F500794E21 /* RepositoryTableViewCell.swift in Sources */,
+				C20F531228641EF8007B024A /* UIColorExtensions.swift in Sources */,
 				C274B5882861AB7D00794E21 /* TextFieldWithPadding.swift in Sources */,
+				C274B58E286410A200794E21 /* RepositoriesListViewController.swift in Sources */,
 				C232966A285C375100123C3D /* AuthViewController.swift in Sources */,
 				C232963B285C363C00123C3D /* SceneDelegate.swift in Sources */,
 			);

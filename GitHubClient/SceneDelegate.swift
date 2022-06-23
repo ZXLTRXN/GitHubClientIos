@@ -19,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navController = UINavigationController()
         let authVC = AuthViewController()
         
-        navController.viewControllers = [authVC]
+        let repositoriesVC = RepositoriesListViewController()
+        
+        navController.viewControllers = [repositoriesVC]
         myWindow.rootViewController = navController
         self.window = myWindow
 
