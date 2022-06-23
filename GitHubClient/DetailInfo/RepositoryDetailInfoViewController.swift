@@ -8,22 +8,28 @@
 import UIKit
 
 class RepositoryDetailInfoViewController: UIViewController {
-
+    @IBOutlet private weak var link: UILabel!
+    @IBOutlet private weak var license: UILabel!
+    @IBOutlet private weak var watchers: UILabel!
+    @IBOutlet private weak var forks: UILabel!
+    @IBOutlet private weak var stars: UILabel!
+    
+    @IBOutlet private weak var licenseLabel: UILabel!
+    @IBOutlet private weak var starsLabel: UILabel!
+    @IBOutlet private weak var watchersLabel: UILabel!
+    @IBOutlet private weak var forksLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUI()
+        title = "Repo Name"
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func setUI(){
+        licenseLabel.text = NSLocalizedString("LICENSE_LABEL", comment: "")
+        starsLabel.text = NSLocalizedString("STARS_LABEL", comment: "")
+        forksLabel.text = NSLocalizedString("FORKS_LABEL", comment: "")
+        watchersLabel.text = NSLocalizedString("WATCHERS_LABEL", comment: "")
     }
-    */
-
 }

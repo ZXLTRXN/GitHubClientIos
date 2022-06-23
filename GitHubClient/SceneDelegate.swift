@@ -17,11 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let myWindow = UIWindow(windowScene: windowScene)
         let navController = UINavigationController()
+        
         let authVC = AuthViewController()
-        
         let repositoriesVC = RepositoriesListViewController()
+        let detailInfoVC = RepositoryDetailInfoViewController()
         
-        navController.viewControllers = [repositoriesVC]
+        navController.viewControllers = [detailInfoVC]
         myWindow.rootViewController = navController
         self.window = myWindow
 

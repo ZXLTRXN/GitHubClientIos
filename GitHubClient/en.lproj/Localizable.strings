@@ -12,3 +12,7 @@
 "INVALID_TOKEN" = "Invalid token";
 "EMPTY_TOKEN" = "Empty token";
 "REPOSITORIES_TITLE" = "Repositories";
+"LICENSE_LABEL" = "License";
+"FORKS_LABEL" = "forks";
+"STARS_LABEL" = "stars";
+"WATCHERS_LABEL" = "watchers";
