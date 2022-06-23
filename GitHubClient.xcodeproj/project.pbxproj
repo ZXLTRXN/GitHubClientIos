@@ -126,13 +126,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C20F530C28641C18007B024A /* Model */ = {
+		C20F530C28641C18007B024A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C20F530D28641C58007B024A /* Repo.swift */,
 				C20F530F28641CDB007B024A /* RepoNetwork.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C20F531428642425007B024A /* DetailInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailInfo;
 			sourceTree = "<group>";
 		};
 		C232962C285C363C00123C3D = {
@@ -160,7 +167,8 @@
 		C2329637285C363C00123C3D /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
-				C20F530C28641C18007B024A /* Model */,
+				C20F531428642425007B024A /* DetailInfo */,
+				C20F530C28641C18007B024A /* Models */,
 				C274B58B2864106E00794E21 /* Repositories */,
 				C274B5862861AB2900794E21 /* UIUtils */,
 				C232966C285C379800123C3D /* Auth */,
