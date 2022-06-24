@@ -18,13 +18,20 @@ class RepositoryDetailInfoViewController: UIViewController {
     @IBOutlet private weak var starsLabel: UILabel!
     @IBOutlet private weak var watchersLabel: UILabel!
     @IBOutlet private weak var forksLabel: UILabel!
+    @IBOutlet private weak var errorView: ErrorView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         title = "Repo Name"
-        
+
+//        showError(errorView: errorView, error: RequestError.noRepositories){
+//            print("tapped")
+//        }
+//        hideError(errorView: errorView)
     }
+    
     
     private func setUI(){
         licenseLabel.text = NSLocalizedString("LICENSE_LABEL", comment: "")

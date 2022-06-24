@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositoryDetailInfoViewController" customModule="GitHubClient" customModuleProvider="target">
             <connections>
+                <outlet property="errorView" destination="CkY-uf-Foy" id="eUq-xM-hgG"/>
                 <outlet property="forks" destination="avF-5C-cmD" id="wcS-Ut-hyv"/>
                 <outlet property="forksLabel" destination="xbA-MV-Spx" id="Xdq-iz-F4i"/>
                 <outlet property="license" destination="lot-zU-gmD" id="I9t-yX-6Dc"/>
@@ -170,14 +171,22 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="wvK-lo-Ki1"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="fAR-IS-xnH"/>
                 </scrollView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CkY-uf-Foy" customClass="ErrorView" customModule="GitHubClient" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="YUb-QQ-ZSg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="13P-Xh-10u"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YUb-QQ-ZSg" secondAttribute="trailing" id="9Di-f4-EGE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CkY-uf-Foy" secondAttribute="trailing" id="BA3-9t-oga"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CkY-uf-Foy" secondAttribute="bottom" id="JOZ-Fd-zPA"/>
+                <constraint firstItem="CkY-uf-Foy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ost-8m-UPb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YUb-QQ-ZSg" secondAttribute="bottom" id="ugx-6p-BGU"/>
                 <constraint firstItem="YUb-QQ-ZSg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ygX-Jr-8gY"/>
+                <constraint firstItem="CkY-uf-Foy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yv1-dF-OAU"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
         </view>

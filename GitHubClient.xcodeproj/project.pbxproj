@@ -31,6 +31,10 @@
 		C274B58F286410A200794E21 /* RepositoriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C274B58D286410A200794E21 /* RepositoriesListViewController.xib */; };
 		C274B592286411F500794E21 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B590286411F500794E21 /* RepositoryTableViewCell.swift */; };
 		C274B593286411F500794E21 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C274B591286411F500794E21 /* RepositoryTableViewCell.xib */; };
+		C2B0F43628645E5D005C9BFE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F43528645E5D005C9BFE /* ErrorView.swift */; };
+		C2B0F43828645EB0005C9BFE /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B0F43728645EB0005C9BFE /* ErrorView.xib */; };
+		C2B0F43A28656161005C9BFE /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F43928656161005C9BFE /* RequestError.swift */; };
+		C2B0F43E28658C9B005C9BFE /* UIControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F43D28658C9B005C9BFE /* UIControlExtensions.swift */; };
 		F63C7C96692611E20D07B6CD /* Pods_GitHubClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674A311982F9324422C4D23C /* Pods_GitHubClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +89,10 @@
 		C274B58D286410A200794E21 /* RepositoriesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesListViewController.xib; sourceTree = "<group>"; };
 		C274B590286411F500794E21 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		C274B591286411F500794E21 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
+		C2B0F43528645E5D005C9BFE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		C2B0F43728645EB0005C9BFE /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		C2B0F43928656161005C9BFE /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		C2B0F43D28658C9B005C9BFE /* UIControlExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExtensions.swift; sourceTree = "<group>"; };
 		CABB94727C49B8FCA7F3812C /* Pods-GitHubClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClientTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubClientTests/Pods-GitHubClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		F0559CA24D1242FC437AB02A /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +181,7 @@
 		C2329637285C363C00123C3D /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
+				C2B0F43428645E2A005C9BFE /* Error */,
 				C2B0F43328645D0F005C9BFE /* ViewControllers */,
 				C20F530C28641C18007B024A /* Models */,
 				C274B5862861AB2900794E21 /* UIUtils */,
@@ -219,6 +228,7 @@
 				C274B5872861AB7D00794E21 /* TextFieldWithPadding.swift */,
 				C274B5892863063F00794E21 /* TextFieldExtensions.swift */,
 				C20F531128641EF8007B024A /* UIColorExtensions.swift */,
+				C2B0F43D28658C9B005C9BFE /* UIControlExtensions.swift */,
 			);
 			path = UIUtils;
 			sourceTree = "<group>";
@@ -242,6 +252,16 @@
 				C20F531428642425007B024A /* DetailInfo */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C2B0F43428645E2A005C9BFE /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C2B0F43528645E5D005C9BFE /* ErrorView.swift */,
+				C2B0F43728645EB0005C9BFE /* ErrorView.xib */,
+				C2B0F43928656161005C9BFE /* RequestError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		E0FF4C0D1A2635E209E34A22 /* Frameworks */ = {
@@ -366,6 +386,7 @@
 				C2329645285C363E00123C3D /* LaunchScreen.storyboard in Resources */,
 				C274B58F286410A200794E21 /* RepositoriesListViewController.xib in Resources */,
 				C274B5832861969C00794E21 /* Localizable.strings in Resources */,
+				C2B0F43828645EB0005C9BFE /* ErrorView.xib in Resources */,
 				C274B593286411F500794E21 /* RepositoryTableViewCell.xib in Resources */,
 				C232966B285C375100123C3D /* AuthViewController.xib in Resources */,
 				C2329642285C363E00123C3D /* Assets.xcassets in Resources */,
@@ -503,11 +524,14 @@
 				C274B58028618A3D00794E21 /* KeyboardAwareAnimatedConstraint.swift in Sources */,
 				C20F530E28641C58007B024A /* Repo.swift in Sources */,
 				C274B592286411F500794E21 /* RepositoryTableViewCell.swift in Sources */,
+				C2B0F43A28656161005C9BFE /* RequestError.swift in Sources */,
 				C20F531228641EF8007B024A /* UIColorExtensions.swift in Sources */,
 				C274B5882861AB7D00794E21 /* TextFieldWithPadding.swift in Sources */,
 				C274B58E286410A200794E21 /* RepositoriesListViewController.swift in Sources */,
 				C20F531728642590007B024A /* RepositoryDetailInfoViewController.swift in Sources */,
+				C2B0F43E28658C9B005C9BFE /* UIControlExtensions.swift in Sources */,
 				C232966A285C375100123C3D /* AuthViewController.swift in Sources */,
+				C2B0F43628645E5D005C9BFE /* ErrorView.swift in Sources */,
 				C232963B285C363C00123C3D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,16 +26,14 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setUI() {
-        let placeholder = NSLocalizedString("TOKEN_PLACEHOLDER", comment: "")
-        tokenTextField.placeholder = placeholder
+        tokenTextField.placeholder = NSLocalizedString("TOKEN_PLACEHOLDER", comment: "")
 
-        let signIn = NSLocalizedString("SIGN_IN_BUTTON", comment: "")
-        signInButton.setTitle(signIn, for: .normal)
+        signInButton.setTitle(NSLocalizedString("SIGN_IN_BUTTON", comment: ""), for: .normal)
         signInButton.layer.cornerRadius = borderRadius
         signInButton.clipsToBounds = true
         signInButton.setTitleColor(signInButton.backgroundColor, for: .disabled)
         
-        let indicatorColor = UIColor(named: "DefaultBlue") ?? UIColor.blue
+        let indicatorColor = UIColor.white
         activityIndicator.cycleColors = [indicatorColor]
     }
     
