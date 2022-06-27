@@ -12,12 +12,12 @@ struct Repo {
     let owner: String
     let name: String
     let htmlUrl: String
-    let description: String? = nil
-    let language: String? = nil
-    let license: String? = nil
-    let languageColor: String? = nil
-    let forks: Int = 0
-    let stars: Int = 0
-    let watchers: Int = 0
-    let branch: String = "master"
+    var description: String? = nil
+    var language: String? = nil
+    var license: String? = nil
+    var languageColor: String? = nil
+    var forks: Int = 0
+    var stars: Int = 0
+    var watchers: Int = 0
+    var branch: String = "master"
 }

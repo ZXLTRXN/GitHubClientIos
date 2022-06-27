@@ -10,23 +10,29 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let navController = UINavigationController()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let myWindow = UIWindow(windowScene: windowScene)
-        let navController = UINavigationController()
         
-        let authVC = AuthViewController()
-        let repositoriesVC = RepositoriesListViewController()
-        let detailInfoVC = RepositoryDetailInfoViewController()
+        chooseStartScreen()
         
-        navController.viewControllers = [detailInfoVC]
         myWindow.rootViewController = navController
         self.window = myWindow
-
         myWindow.makeKeyAndVisible()
+    }
+    
+    func chooseStartScreen() {
+        navController.viewControllers = [RepositoryDetailInfoViewController()]
+        
+//        if userManager.token == nil {
+//            navController.viewControllers = [AuthViewController()]
+//        } else {
+//            navController.viewControllers = [RepositoriesListViewController()]
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
