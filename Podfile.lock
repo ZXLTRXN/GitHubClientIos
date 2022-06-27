@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.6.1)
   - MaterialComponents/ActivityIndicator (124.2.0):
     - MaterialComponents/Palettes
     - MaterialComponents/private/Application
@@ -13,7 +13,7 @@ PODS:
   - MotionInterchange (3.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0)
+  - Alamofire (= 5.6.1)
   - MaterialComponents/ActivityIndicator (= 124.2.0)
 
 SPEC REPOS:
@@ -25,12 +25,12 @@ SPEC REPOS:
     - MotionInterchange
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MotionAnimator: 5f99d7c9592928c0f28a66283eda9c3b657dc480
   MotionInterchange: 13adae439b377e31d1674cc165539d50e1d1566a
 
-PODFILE CHECKSUM: 593eb95202a9663823048f06b8a3b2f6208186d5
+PODFILE CHECKSUM: 2cdf32c9f0b503b4de0c73c80f485920006e61a1
 
 COCOAPODS: 1.11.3

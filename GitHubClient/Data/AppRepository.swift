@@ -8,6 +8,8 @@
 import Foundation
 
 class AppRepository {
+    private let api = APIService.shared
+    
       func getRepositories(completion: @escaping (Array<Repo>?, Error?) -> Void) {
           // TODO:
       }
@@ -21,7 +23,12 @@ class AppRepository {
       }
       
       func signIn(token: String, completion: @escaping (UserInfo?, Error?) -> Void) {
-         // TODO:
+//          api.getUser(token: token).map(to: RepoNetwork.self, completion: {(repoNetwork, error) in
+//              repoNetwork?.toRepo()
+//              
+//          })
+
+          }
       }
+
       
-   }

@@ -2,7 +2,7 @@ platform :ios, '13.0'
 
 target 'GitHubClient' do
   use_frameworks!
-    pod 'Alamofire', '~> 4.0'
+    pod 'Alamofire', '5.6.1'
     pod 'MaterialComponents/ActivityIndicator', '124.2.0'
 
   # Pods for GitHubClient

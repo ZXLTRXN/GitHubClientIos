@@ -27,12 +27,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func chooseStartScreen() {
         navController.viewControllers = [RepositoryDetailInfoViewController()]
+        let storage = KeyValueStorage.shared
         
-//        if userManager.token == nil {
-//            navController.viewControllers = [AuthViewController()]
-//        } else {
-//            navController.viewControllers = [RepositoriesListViewController()]
-//        }
+        if storage.authToken == nil {
+            navController.viewControllers = [AuthViewController()]
+        } else {
+            navController.viewControllers = [RepositoriesListViewController()]
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
