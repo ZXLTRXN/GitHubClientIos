@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func showError(errorView: ErrorView!, error: RequestError, onButtonTap: @escaping() -> ()) {
+    func showErrorView(_ errorView: ErrorView!, error: RequestError, onButtonTap: @escaping() -> ()) {
         var image: UIImage
         var color: UIColor
         var buttonTitle: String
@@ -35,7 +35,33 @@ extension UIViewController {
         errorView.isHidden = false
     }
     
-    func hideError(errorView: ErrorView!){
+    func hideErrorView(_ errorView: ErrorView!){
         errorView.isHidden = true
+    }
+    
+    func showAlert(msg: String, sender: UIView) {
+        let alertController = UIAlertController(title:
+               msg, message: nil,
+               preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+               style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+        
+        alertController.popoverPresentationController?.sourceView = sender
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showAlert(for error: Error, sender: UIView){
+        var msg = NSLocalizedString("ERROR", comment: "")
+        if let requestError = error as? RequestError {
+            msg.append(contentsOf: "\n\(requestError.errorDescription!)\n\(requestError.recoverySuggestion!)")
+            if let reason = requestError.failureReason {
+                msg.append(contentsOf: "\n\(reason)")
+            }
+        } else {
+            msg = error.localizedDescription
+        }
+        showAlert(msg: msg, sender: sender)
     }
 }

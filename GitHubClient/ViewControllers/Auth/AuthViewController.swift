@@ -10,19 +10,31 @@ import MaterialComponents.MaterialActivityIndicator
 
 class AuthViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var tokenTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var activityIndicator: MDCActivityIndicator!
+    @IBOutlet weak private var tokenTextField: UITextField!
+    @IBOutlet weak private var errorLabel: UILabel!
+    @IBOutlet weak private var signInButton: UIButton!
+    @IBOutlet weak private var activityIndicator: MDCActivityIndicator!
     
-    let borderRadius: CGFloat = 8
-    var editState: EditState = .valid
-    var validationEnabled = false
+    private let appRepo = AppRepository.shared
+    
+    private let borderRadius: CGFloat = 8
+    private var editState: EditState = .valid
+    private var validationEnabled = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tokenTextField.delegate = self
         setUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func setUI() {
@@ -37,21 +49,6 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         activityIndicator.cycleColors = [indicatorColor]
     }
     
-    
-    @IBAction func signInTapped(_ sender: UIButton) {
-        if !validationEnabled {
-            validationEnabled = true
-            checkValidation(onValid: setIdleState)
-        }
-        if editState == .valid {
-            onLoading(started: true)
-//            appRepository.signIn(tokenTextField.text){
-//            onLoading(started: false)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//            }
-        }
-
-    }
-    
     func onLoading(started flag: Bool) {
         tokenTextField.isEnabled = !flag
         signInButton.isEnabled = !flag
@@ -64,6 +61,24 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func signInTapped(_ sender: UIButton) {
+        if !validationEnabled {
+            validationEnabled = true
+            checkValidation(onValid: setIdleState)
+        }
+        if editState == .valid {
+            onLoading(started: true)
+            guard let token = tokenTextField.text else { return }
+            appRepo.signIn(token: token) {[weak self] error in
+                self?.onLoading(started: false)
+                guard let error = error else {
+                    self?.navigationController?.pushViewController(RepositoriesListViewController(), animated: true)
+                    return
+                }
+                self?.showAlert(for: error, sender: sender)
+            }
+        }
+    }
     
     // MARK: textField
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -122,7 +137,6 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         errorLabel.isHidden = true
         errorLabel.text = nil
     }
-    
 }
 
 enum EditState: Equatable {

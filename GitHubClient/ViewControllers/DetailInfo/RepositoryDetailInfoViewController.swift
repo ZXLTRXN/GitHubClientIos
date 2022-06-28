@@ -26,10 +26,10 @@ class RepositoryDetailInfoViewController: UIViewController {
         setUI()
         title = "Repo Name"
 
-//        showError(errorView: errorView, error: RequestError.noRepositories){
+//        showErrorView(errorView, error: RequestError.noRepositories){
 //            print("tapped")
 //        }
-//        hideError(errorView: errorView)
+//        hideErrorView(errorView)
     }
     
     

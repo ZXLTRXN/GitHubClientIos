@@ -20,11 +20,11 @@ class APIService {
     }()
     
     func getUser(token: String) -> DataRequest {
-        sessionManager.request(APIService.BASE_URL + "/user", headers: ["Authorization" : "token \(token)"])
+        sessionManager.request(APIService.BASE_URL + "user", headers: ["Authorization" : "token \(token)"])
     }
     
     func getRepositories() -> DataRequest {
-        sessionManager.request(APIService.BASE_URL + "/user/repos")
+        sessionManager.request(APIService.BASE_URL + "user/repos")
     }
 }
 

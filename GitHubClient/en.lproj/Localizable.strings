@@ -18,6 +18,8 @@
 "STARS_LABEL" = "stars";
 "WATCHERS_LABEL" = "watchers";
 
+"ERROR" = "Error";
+"OK" = "Ok";
 "NO_INTERNET" = "Connection error";
 "NO_INTERNET_SUGGESTION" = "Check your Internet connection";
 "WRONG_TOKEN" = "Wrong token";
