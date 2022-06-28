@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialActivityIndicator
 
 class RepositoriesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var errorView: ErrorView!
+    @IBOutlet private weak var activityIndicator: MDCActivityIndicator!
     
     let repository = AppRepository.shared
     
@@ -19,12 +21,18 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        setUI()
+        getData()
+    }
+    
+    private func setUI() {
         tableView.register(UINib(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         
-        getData()
+        activityIndicator.setColor()
+        activityIndicator.radius = 28
         
         title = NSLocalizedString("REPOSITORIES_TITLE", comment: "")
         navigationItem.backButtonTitle = ""
@@ -32,17 +40,18 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     private func getData() {
+        activityIndicator.show()
         repository.getRepositories { [weak self] repos, error in
             if let repos = repos {
                 self?.repos = repos
                 self?.tableView.reloadData()
-                return
             }
             if let error = error {
                 self?.showErrorView(self?.errorView, error: error as! RequestError) {
                     self?.getData()
                 }
             }
+            self?.activityIndicator.hide()
         }
     }
     

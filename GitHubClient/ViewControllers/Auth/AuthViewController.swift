@@ -45,19 +45,16 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         signInButton.clipsToBounds = true
         signInButton.setTitleColor(signInButton.backgroundColor, for: .disabled)
         
-        let indicatorColor = UIColor.white
-        activityIndicator.cycleColors = [indicatorColor]
+        activityIndicator.setColor()
     }
     
     func onLoading(started flag: Bool) {
         tokenTextField.isEnabled = !flag
         signInButton.isEnabled = !flag
         if flag {
-            activityIndicator.isHidden = false
-            activityIndicator.startAnimating()
+            activityIndicator.show()
         } else {
-            activityIndicator.isHidden = true
-            activityIndicator.stopAnimating()
+            activityIndicator.hide()
         }
     }
     

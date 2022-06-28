@@ -53,7 +53,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFI-uL-35l" customClass="MDCActivityIndicator">
-                    <rect key="frame" x="192" y="812" width="30" height="30"/>
+                    <rect key="frame" x="194" y="815" width="26.5" height="26.5"/>
                     <color key="backgroundColor" name="GreenButton"/>
                 </view>
             </subviews>

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositoryDetailInfoViewController" customModule="GitHubClient" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="pMv-ZR-vCG" id="Bla-Jb-6Ou"/>
                 <outlet property="errorView" destination="CkY-uf-Foy" id="eUq-xM-hgG"/>
                 <outlet property="forks" destination="avF-5C-cmD" id="wcS-Ut-hyv"/>
                 <outlet property="forksLabel" destination="xbA-MV-Spx" id="Xdq-iz-F4i"/>
@@ -34,7 +35,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="T8x-CP-uF6">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="562.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="339.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="WEZ-od-4IX" userLabel="Link Row">
                                     <rect key="frame" x="8" y="0.0" width="73" height="48"/>
@@ -148,8 +149,8 @@
                                     <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="0.0" right="8"/>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfS-Ul-Vdi">
-                                    <rect key="frame" x="8" y="177" width="398" height="385.5"/>
-                                    <string key="text">Egestas integer eget aliquet nibh praesent tristique. Pulvinar etiam non quam lacus suspendisse faucibus interdum. Vitae sapien pellentesque habitant morbi tristique senectus. Quisque id diam vel quam elementum pulvinar etiam non quam. Donec ac odio tempor orci dapibus ultrices in iaculis. Sed felis eget velit aliquet. Nulla malesuada pellentesque elit eget gravida. Elit at imperdiet dui accumsan sit amet nulla facilisi morbi. Egestas erat imperdiet sed euismod nisi. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Nulla pellentesque dignissim enim sit amet. In arcu cursus euismod quis viverra nibh cras. Aliquam purus sit amet luctus venenatis lectus. Dui faucibus in ornare quam viverra orci sagittis. Leo urna molestie at elementum. Nibh sed pulvinar proin gravida. Velit ut tortor pretium viverra suspendisse potenti nullam. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque.</string>
+                                    <rect key="frame" x="8" y="177" width="398" height="162.5"/>
+                                    <string key="text">//Egestas integer eget aliquet nibh praesent tristique. Pulvinar etiam non quam lacus suspendisse faucibus interdum. Vitae sapien pellentesque habitant morbi tristique senectus. Quisque id diam vel quam elementum pulvinar etiam non quam. Donec ac odio tempor orci dapibus ultrices in iaculis. Sed felis eget velit aliquet. Nulla malesuada pellentesque elit eget gravida.</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -175,6 +176,14 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMv-ZR-vCG" customClass="MDCActivityIndicator" customModule="GitHubClient" customModuleProvider="target">
+                    <rect key="frame" x="179" y="420" width="56" height="56"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="5e9-b2-cdF"/>
+                        <constraint firstAttribute="height" constant="56" id="FSE-ko-ofj"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -183,6 +192,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YUb-QQ-ZSg" secondAttribute="trailing" id="9Di-f4-EGE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CkY-uf-Foy" secondAttribute="trailing" id="BA3-9t-oga"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CkY-uf-Foy" secondAttribute="bottom" id="JOZ-Fd-zPA"/>
+                <constraint firstItem="pMv-ZR-vCG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="REv-0V-fjC"/>
+                <constraint firstItem="pMv-ZR-vCG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jRZ-tb-qR8"/>
                 <constraint firstItem="CkY-uf-Foy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ost-8m-UPb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YUb-QQ-ZSg" secondAttribute="bottom" id="ugx-6p-BGU"/>
                 <constraint firstItem="YUb-QQ-ZSg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ygX-Jr-8gY"/>

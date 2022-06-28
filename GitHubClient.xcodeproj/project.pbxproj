@@ -41,6 +41,7 @@
 		C2B0F4492869745B005C9BFE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F4482869745B005C9BFE /* APIService.swift */; };
 		C2B0F44C286987E4005C9BFE /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F44B286987E4005C9BFE /* AuthInterceptor.swift */; };
 		C2B0F44E28699AE7005C9BFE /* UIViewCotrollerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F44D28699AE7005C9BFE /* UIViewCotrollerExtensions.swift */; };
+		C2B0F450286AE6CB005C9BFE /* MDCActivityIndicatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F44F286AE6CB005C9BFE /* MDCActivityIndicatorExtensions.swift */; };
 		F63C7C96692611E20D07B6CD /* Pods_GitHubClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674A311982F9324422C4D23C /* Pods_GitHubClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		C2B0F4482869745B005C9BFE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C2B0F44B286987E4005C9BFE /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		C2B0F44D28699AE7005C9BFE /* UIViewCotrollerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewCotrollerExtensions.swift; sourceTree = "<group>"; };
+		C2B0F44F286AE6CB005C9BFE /* MDCActivityIndicatorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCActivityIndicatorExtensions.swift; sourceTree = "<group>"; };
 		CABB94727C49B8FCA7F3812C /* Pods-GitHubClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClientTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubClientTests/Pods-GitHubClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		F0559CA24D1242FC437AB02A /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,6 +246,7 @@
 				C20F531128641EF8007B024A /* UIColorExtensions.swift */,
 				C2B0F43D28658C9B005C9BFE /* UIControlExtensions.swift */,
 				C2B0F44D28699AE7005C9BFE /* UIViewCotrollerExtensions.swift */,
+				C2B0F44F286AE6CB005C9BFE /* MDCActivityIndicatorExtensions.swift */,
 			);
 			path = UIUtils;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				C2B0F44428695D0C005C9BFE /* UserInfo.swift in Sources */,
 				C2B0F43A28656161005C9BFE /* RequestError.swift in Sources */,
 				C20F531228641EF8007B024A /* UIColorExtensions.swift in Sources */,
+				C2B0F450286AE6CB005C9BFE /* MDCActivityIndicatorExtensions.swift in Sources */,
 				C274B5882861AB7D00794E21 /* TextFieldWithPadding.swift in Sources */,
 				C2B0F447286968DE005C9BFE /* KeyValueStorage.swift in Sources */,
 				C274B58E286410A200794E21 /* RepositoriesListViewController.swift in Sources */,

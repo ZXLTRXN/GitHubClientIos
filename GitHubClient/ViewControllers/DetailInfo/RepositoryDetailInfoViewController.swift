@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import MaterialComponents.MaterialActivityIndicator
 
 class RepositoryDetailInfoViewController: UIViewController {
     @IBOutlet private weak var link: UILabel!
@@ -19,15 +20,17 @@ class RepositoryDetailInfoViewController: UIViewController {
     @IBOutlet private weak var starsLabel: UILabel!
     @IBOutlet private weak var watchersLabel: UILabel!
     @IBOutlet private weak var forksLabel: UILabel!
+    
     @IBOutlet private weak var errorView: ErrorView!
+    @IBOutlet private weak var activityIndicator: MDCActivityIndicator!
     
     var repo: Repo
     
     init(repo: Repo, nibName: String?, bundle: Bundle?) {
-            self.repo = repo
-            super.init(nibName: nibName, bundle: bundle)
+        self.repo = repo
+        super.init(nibName: nibName, bundle: bundle)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -35,25 +38,27 @@ class RepositoryDetailInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        
-        title = "Repo Name"
+        //        showErrorView(errorView, error: RequestError.noRepositories){
+        //            print("tapped")
+        //        }
+        //        hideErrorView(errorView)
+    }
+    
+    private func setUI(){
         setExitButton()
         
         link.isUserInteractionEnabled = true
         link.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.linkPressed)))
-
-//        showErrorView(errorView, error: RequestError.noRepositories){
-//            print("tapped")
-//        }
-//        hideErrorView(errorView)
-    }
         
-    private func setUI(){
+        //        activityIndicator.setColor() в нибе дело
+        //        activityIndicator.radius = 28
+        
         licenseLabel.text = NSLocalizedString("LICENSE_LABEL", comment: "")
         starsLabel.text = NSLocalizedString("STARS_LABEL", comment: "")
         forksLabel.text = NSLocalizedString("FORKS_LABEL", comment: "")
         watchersLabel.text = NSLocalizedString("WATCHERS_LABEL", comment: "")
         
+        title = repo.name
         link.text = repo.htmlUrl
         license.text = repo.license ?? NSLocalizedString("EMPTY_LICENSE", comment: "")
         stars.text = "\(repo.stars)"
@@ -64,9 +69,9 @@ class RepositoryDetailInfoViewController: UIViewController {
     
     @IBAction func linkPressed() {
         if let url = URL(string: link.text!) {
-                let safariViewController = SFSafariViewController(url: url)
-                present(safariViewController, animated: true,
-                   completion: nil)
-            }
+            let safariViewController = SFSafariViewController(url: url)
+            present(safariViewController, animated: true,
+                    completion: nil)
+        }
     }
 }

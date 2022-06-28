@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositoriesListViewController" customModule="GitHubClient" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="sC9-FK-Zer" id="Mal-IV-qLb"/>
                 <outlet property="errorView" destination="rXp-vH-FuP" id="KJT-Dx-UAX"/>
                 <outlet property="tableView" destination="LMR-5E-G1p" id="8fI-L9-SV2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,16 +30,26 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sC9-FK-Zer" customClass="MDCActivityIndicator">
+                    <rect key="frame" x="179" y="420" width="56" height="56"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="PfO-rX-eWR"/>
+                        <constraint firstAttribute="width" constant="56" id="w2Y-jk-psx"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="sC9-FK-Zer" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2K5-PN-ZfQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LMR-5E-G1p" secondAttribute="bottom" id="PhK-4w-N94"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rXp-vH-FuP" secondAttribute="bottom" id="TZ9-0m-SME"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LMR-5E-G1p" secondAttribute="trailing" id="UnI-AD-50o"/>
                 <constraint firstItem="LMR-5E-G1p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hUW-jV-QRg"/>
                 <constraint firstItem="LMR-5E-G1p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mh3-JM-fh0"/>
                 <constraint firstItem="rXp-vH-FuP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rrL-mS-jKQ"/>
+                <constraint firstItem="sC9-FK-Zer" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tZ1-I9-sQE"/>
                 <constraint firstItem="rXp-vH-FuP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yOf-1K-oI4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rXp-vH-FuP" secondAttribute="trailing" id="zBL-L8-beY"/>
             </constraints>
