@@ -14,7 +14,7 @@ class AppRepository {
     
     func getRepositories(completion: @escaping (Array<Repo>?, Error?) -> Void) {
         api.getRepositories().map(to: Array<RepoNetwork>.self) {(reposNetwork, error) in
-            guard error != nil else {
+            guard error == nil else {
                 completion(nil, error)
                 return
             }

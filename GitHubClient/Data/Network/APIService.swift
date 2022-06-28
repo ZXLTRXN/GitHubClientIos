@@ -50,7 +50,7 @@ extension DataRequest {
                     return
                 }
                 guard let code = data.response?.statusCode else {
-                    completion(nil, error)
+                    completion(nil, error) // неверно
                     return
                 }
                 

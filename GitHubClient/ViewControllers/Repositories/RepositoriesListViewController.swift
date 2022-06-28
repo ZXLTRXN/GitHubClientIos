@@ -10,18 +10,40 @@ import UIKit
 class RepositoriesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var errorView: ErrorView!
     
-    let repos = [Repo(id: 1,owner:"aa",name:"repo",htmlUrl:"aaa"), Repo(id: 1,owner:"aa",name:"repo2",htmlUrl:"aaa")]
-    let cellIdentifier = "RepositoryCell"
+    let repository = AppRepository.shared
+    
+    private var repos: Array<Repo> = []
+    private let cellIdentifier = "RepositoryCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(UINib(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         
+        getData()
+        
         title = NSLocalizedString("REPOSITORIES_TITLE", comment: "")
+        navigationItem.backButtonTitle = ""
         setExitButton()
+    }
+    
+    private func getData() {
+        repository.getRepositories { [weak self] repos, error in
+            if let repos = repos {
+                self?.repos = repos
+                self?.tableView.reloadData()
+                return
+            }
+            if let error = error {
+                self?.showErrorView(self?.errorView, error: error as! RequestError) {
+                    self?.getData()
+                }
+            }
+        }
     }
     
     // MARK: - DataSource
@@ -37,7 +59,8 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
     //
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(repos[indexPath.row].name)
+        let nextViewController = RepositoryDetailInfoViewController(repo: repos[indexPath.row], nibName: "RepositoryDetailInfoViewController", bundle: nil)
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
     
 }

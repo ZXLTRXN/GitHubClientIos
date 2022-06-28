@@ -26,9 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func chooseStartScreen() {
-        navController.viewControllers = [RepositoryDetailInfoViewController()]
         let storage = KeyValueStorage.shared
-        
         if storage.authToken == nil {
             navController.viewControllers = [AuthViewController()]
         } else {

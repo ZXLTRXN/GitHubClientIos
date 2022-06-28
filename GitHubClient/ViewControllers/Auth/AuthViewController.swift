@@ -10,10 +10,10 @@ import MaterialComponents.MaterialActivityIndicator
 
 class AuthViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak private var tokenTextField: UITextField!
-    @IBOutlet weak private var errorLabel: UILabel!
-    @IBOutlet weak private var signInButton: UIButton!
-    @IBOutlet weak private var activityIndicator: MDCActivityIndicator!
+    @IBOutlet private weak var tokenTextField: UITextField!
+    @IBOutlet private weak var errorLabel: UILabel!
+    @IBOutlet private weak var signInButton: UIButton!
+    @IBOutlet private weak var activityIndicator: MDCActivityIndicator!
     
     private let appRepo = AppRepository.shared
     

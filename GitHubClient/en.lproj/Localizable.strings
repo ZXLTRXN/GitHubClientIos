@@ -14,6 +14,7 @@
 "REPOSITORIES_TITLE" = "Repositories";
 
 "LICENSE_LABEL" = "License";
+"EMPTY_LICENSE" = "—";
 "FORKS_LABEL" = "forks";
 "STARS_LABEL" = "stars";
 "WATCHERS_LABEL" = "watchers";
