@@ -41,7 +41,7 @@ extension DataRequest {
                     completion(nil, error)
                 }
                 
-            case .failure(let error):
+            case .failure(let error):// не работает
                 let nsError = (error as NSError)
                 guard nsError.domain != NSURLErrorDomain,
                       nsError.code != NSURLErrorTimedOut,

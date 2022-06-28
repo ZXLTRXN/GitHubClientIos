@@ -72,7 +72,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
             appRepo.signIn(token: token) {[weak self] error in
                 self?.onLoading(started: false)
                 guard let error = error else {
-                    self?.navigationController?.pushViewController(RepositoriesListViewController(), animated: true)
+                    self?.navigationController?.setViewControllers([RepositoriesListViewController()], animated: true)
                     return
                 }
                 self?.showAlert(for: error, sender: sender)

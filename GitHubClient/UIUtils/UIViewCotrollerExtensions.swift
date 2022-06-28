@@ -64,4 +64,17 @@ extension UIViewController {
         }
         showAlert(msg: msg, sender: sender)
     }
+    
+    func setExitButton(){
+        let exitButton = UIBarButtonItem(image: UIImage(named: "exit"),
+                                         style: UIBarButtonItem.Style.plain,
+                                         target: self, action: #selector(self.onExitTapped))
+        exitButton.tintColor = UIColor.white
+        navigationItem.setRightBarButton(exitButton, animated: true)
+    }
+    
+    @IBAction func onExitTapped() {
+        AppRepository.shared.signOut()
+        navigationController?.setViewControllers([AuthViewController()], animated: true)
+    }
 }

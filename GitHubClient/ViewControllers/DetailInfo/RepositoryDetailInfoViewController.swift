@@ -25,6 +25,7 @@ class RepositoryDetailInfoViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         title = "Repo Name"
+        setExitButton()
 
 //        showErrorView(errorView, error: RequestError.noRepositories){
 //            print("tapped")

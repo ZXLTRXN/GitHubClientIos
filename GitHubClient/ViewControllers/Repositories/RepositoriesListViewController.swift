@@ -21,6 +21,7 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
         tableView.register(UINib(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         
         title = NSLocalizedString("REPOSITORIES_TITLE", comment: "")
+        setExitButton()
     }
     
     // MARK: - DataSource
