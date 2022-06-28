@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class RepositoryDetailInfoViewController: UIViewController {
     @IBOutlet private weak var link: UILabel!
@@ -34,8 +35,12 @@ class RepositoryDetailInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        
         title = "Repo Name"
         setExitButton()
+        
+        link.isUserInteractionEnabled = true
+        link.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.linkPressed)))
 
 //        showErrorView(errorView, error: RequestError.noRepositories){
 //            print("tapped")
@@ -54,5 +59,14 @@ class RepositoryDetailInfoViewController: UIViewController {
         stars.text = "\(repo.stars)"
         forks.text = "\(repo.forks)"
         watchers.text = "\(repo.watchers)"
+    }
+    
+    
+    @IBAction func linkPressed() {
+        if let url = URL(string: link.text!) {
+                let safariViewController = SFSafariViewController(url: url)
+                present(safariViewController, animated: true,
+                   completion: nil)
+            }
     }
 }
