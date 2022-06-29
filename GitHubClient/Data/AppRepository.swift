@@ -29,8 +29,14 @@ class AppRepository {
         }
     }
     
-    func getRepository(repoId: String, completion: @escaping (Repo?, Error?) -> Void) {
-        // TODO:
+    func getRepository(owner: String, repoName: String, completion: @escaping (Repo?, Error?) -> Void) {
+        api.getRepository(owner: owner, repoName: repoName).map(to: RepoNetwork.self){ (repoNetwork, error) in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            completion(repoNetwork!.toRepo(), nil)
+        }
     }
     
     func getRepositoryReadme(ownerName: String, repositoryName: String, branchName: String, completion: @escaping (String?, Error?) -> Void) {

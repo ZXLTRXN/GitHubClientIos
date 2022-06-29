@@ -12,7 +12,7 @@ class APIService {
     private static let BASE_URL = "https://api.github.com/"
     static let shared = APIService()
     
-    let sessionManager: Session = {
+    private let sessionManager: Session = {
         let configuration = URLSessionConfiguration.af.default
         configuration.timeoutIntervalForRequest = 30
         configuration.headers.add(HTTPHeader(name: "Accept", value: "application/vnd.github.v3+json"))
@@ -26,6 +26,14 @@ class APIService {
     func getRepositories() -> DataRequest {
         sessionManager.request(APIService.BASE_URL + "user/repos")
     }
+    
+    func getRepository(owner: String, repoName: String) -> DataRequest {
+        sessionManager.request(APIService.BASE_URL + "repos/\(owner)/\(repoName)")
+    }
+    
+//    func getRepositoryReadme(ownerName: String, repoName: String, branch: String) {
+//        
+//    }
 }
 
 

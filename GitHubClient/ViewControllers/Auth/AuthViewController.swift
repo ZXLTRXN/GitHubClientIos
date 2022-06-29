@@ -48,7 +48,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         activityIndicator.setColor()
     }
     
-    func onLoading(started flag: Bool) {
+    private func onLoading(started flag: Bool) {
         tokenTextField.isEnabled = !flag
         signInButton.isEnabled = !flag
         if flag {
@@ -58,7 +58,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func signInTapped(_ sender: UIButton) {
+    @IBAction private func signInTapped(_ sender: UIButton) {
         if !validationEnabled {
             validationEnabled = true
             checkValidation(onValid: setIdleState)
@@ -88,7 +88,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func editingChanged(_ sender: UITextField) {
+    @IBAction private func editingChanged(_ sender: UITextField) {
         checkValidation(onValid: setIdleState)
     }
     //

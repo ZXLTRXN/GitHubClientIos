@@ -14,7 +14,7 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet private weak var errorView: ErrorView!
     @IBOutlet private weak var activityIndicator: MDCActivityIndicator!
     
-    let repository = AppRepository.shared
+    private let appRepo = AppRepository.shared
     
     private var repos: Array<Repo> = []
     private let cellIdentifier = "RepositoryCell"
@@ -40,8 +40,8 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     private func getData() {
-        activityIndicator.show()
-        repository.getRepositories { [weak self] repos, error in
+        onLoading(started: true)
+        appRepo.getRepositories { [weak self] repos, error in
             if let repos = repos {
                 self?.repos = repos
                 self?.tableView.reloadData()
@@ -50,8 +50,21 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
                 self?.showErrorView(self?.errorView, error: error as! RequestError) {
                     self?.getData()
                 }
+            } else {
+                self?.hideErrorView(self?.errorView)
             }
-            self?.activityIndicator.hide()
+            self?.onLoading(started: false)
+        }
+    }
+    
+    private func onLoading(started flag: Bool) {
+        if flag {
+            hideErrorView(errorView)
+            tableView.isHidden = true
+            activityIndicator.show()
+        } else {
+            tableView.isHidden = false
+            activityIndicator.hide()
         }
     }
     
