@@ -77,8 +77,8 @@ class RepositoryDetailInfoViewController: UIViewController {
         link.isUserInteractionEnabled = true
         link.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.linkPressed)))
         
-//        activityIndicator.setColor()
-//        activityIndicator.radius = 28
+        activityIndicator.setColor()
+        activityIndicator.radius = 28
         
         licenseLabel.text = NSLocalizedString("LICENSE_LABEL", comment: "")
         starsLabel.text = NSLocalizedString("STARS_LABEL", comment: "")
@@ -88,12 +88,12 @@ class RepositoryDetailInfoViewController: UIViewController {
     
     private func onLoading(started flag: Bool) {
         content.isHidden = flag
-//        if flag {
-//            activityIndicator.show()
-//            errorView.isHidden = true
-//        } else {
-//            activityIndicator.hide()
-//        }
+        if flag {
+            activityIndicator.show()
+            errorView.isHidden = true
+        } else {
+            activityIndicator.hide()
+        }
     }
     
     @IBAction private func linkPressed() {

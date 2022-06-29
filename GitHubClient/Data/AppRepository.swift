@@ -39,8 +39,14 @@ class AppRepository {
         }
     }
     
-    func getRepositoryReadme(ownerName: String, repositoryName: String, branchName: String, completion: @escaping (String?, Error?) -> Void) {
-        // TODO:
+    func getRepositoryReadme(owner: String, repoName: String, branch: String, completion: @escaping (String?, Error?) -> Void) {
+        api.getRepositoryReadme(owner: owner, repoName: repoName, branch: branch).map(to: String.self) { (readme, error) in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            completion(readme, nil)
+        }
     }
     
     func signIn(token: String, completion: @escaping (Error?) -> Void) {

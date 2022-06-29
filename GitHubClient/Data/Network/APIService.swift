@@ -31,9 +31,9 @@ class APIService {
         sessionManager.request(APIService.BASE_URL + "repos/\(owner)/\(repoName)")
     }
     
-//    func getRepositoryReadme(ownerName: String, repoName: String, branch: String) {
-//        
-//    }
+    func getRepositoryReadme(owner: String, repoName: String, branch: String) -> DataRequest {
+        sessionManager.request(APIService.BASE_URL + "repos/\(owner)/\(repoName)/readme")
+    }
 }
 
 
