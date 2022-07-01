@@ -5,7 +5,7 @@
 //  Created by Ilya Shevtsov on 27.06.2022.
 //
 
-import Foundation
+
 
 class AppRepository {
     private let api = APIService.shared
@@ -13,7 +13,7 @@ class AppRepository {
     static let shared = AppRepository()
     
     func getRepositories(completion: @escaping (Array<Repo>?, Error?) -> Void) {
-        api.getRepositories().map(to: Array<RepoNetwork>.self) {(reposNetwork, error) in
+        api.getRepositories().mapJSON(to: Array<RepoNetwork>.self) {(reposNetwork, error) in
             guard error == nil else {
                 completion(nil, error)
                 return
@@ -30,7 +30,7 @@ class AppRepository {
     }
     
     func getRepository(owner: String, repoName: String, completion: @escaping (Repo?, Error?) -> Void) {
-        api.getRepository(owner: owner, repoName: repoName).map(to: RepoNetwork.self){ (repoNetwork, error) in
+        api.getRepository(owner: owner, repoName: repoName).mapJSON(to: RepoNetwork.self){ (repoNetwork, error) in
             guard error == nil else {
                 completion(nil, error)
                 return
@@ -40,7 +40,7 @@ class AppRepository {
     }
     
     func getRepositoryReadme(owner: String, repoName: String, branch: String, completion: @escaping (String?, Error?) -> Void) {
-        api.getRepositoryReadme(owner: owner, repoName: repoName, branch: branch).map(to: String.self) { (readme, error) in
+        api.getRepositoryReadme(owner: owner, repoName: repoName, branch: branch).mapString() { (readme, error) in
             guard error == nil else {
                 completion(nil, error)
                 return
@@ -50,7 +50,7 @@ class AppRepository {
     }
     
     func signIn(token: String, completion: @escaping (Error?) -> Void) {
-        api.getUser(token: token).map(to: UserInfo.self) {(_, error) in
+        api.getUser(token: token).mapJSON(to: UserInfo.self) {(_, error) in
             if error == nil {
                 self.storage.authToken = token
             }

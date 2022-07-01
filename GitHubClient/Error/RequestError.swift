@@ -14,7 +14,7 @@ enum RequestError: Error {
     case noRights
     case readmeNotFound
     case noRepositories
-    case unknown(code: Int)
+    case unknown(statusCode: Int?)
 }
 
 extension RequestError : LocalizedError {
@@ -37,8 +37,9 @@ extension RequestError : LocalizedError {
     
     public var failureReason: String? {
         switch self {
-        case .unknown(let code):
-            return "\(code)"
+        case .unknown(let statusCode):
+            let codeString = statusCode == nil ? "none" : "\(String(describing: statusCode))"
+            return "statusCode: \(codeString); description: \(self.localizedDescription)"
         default:
             return nil
         }

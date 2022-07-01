@@ -52,15 +52,14 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func showAlert(for error: Error, sender: UIView){
+    func showAlert(for error: RequestError, sender: UIView){
         var msg = NSLocalizedString("ERROR", comment: "")
-        if let requestError = error as? RequestError {
-            msg.append(contentsOf: "\n\(requestError.errorDescription!)\n\(requestError.recoverySuggestion!)")
-            if let reason = requestError.failureReason {
-                msg.append(contentsOf: "\n\(reason)")
-            }
-        } else {
-            msg = error.localizedDescription
+        switch error {
+        case .unknown:
+            msg.append(contentsOf: "\n\(error.failureReason!)")
+            msg.append(contentsOf: NSLocalizedString("INFO_FOR_DEVELOPERS", comment: ""))
+        default:
+            msg.append(contentsOf: "\n\(error.errorDescription!)\n\(error.recoverySuggestion!)")
         }
         showAlert(msg: msg, sender: sender)
     }

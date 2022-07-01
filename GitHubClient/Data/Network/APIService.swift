@@ -5,16 +5,17 @@
 //  Created by Ilya Shevtsov on 27.06.2022.
 //
 
-import Foundation
+
 import Alamofire
 
 class APIService {
     private static let BASE_URL = "https://api.github.com/"
+    private static let README_BASE_URL = "https://raw.githubusercontent.com/"
     static let shared = APIService()
     
     private let sessionManager: Session = {
         let configuration = URLSessionConfiguration.af.default
-        configuration.timeoutIntervalForRequest = 30
+        configuration.timeoutIntervalForRequest = 7
         configuration.headers.add(HTTPHeader(name: "Accept", value: "application/vnd.github.v3+json"))
         return Session(configuration: configuration, interceptor: AuthInterceptor())
     }()
@@ -32,45 +33,13 @@ class APIService {
     }
     
     func getRepositoryReadme(owner: String, repoName: String, branch: String) -> DataRequest {
-        sessionManager.request(APIService.BASE_URL + "repos/\(owner)/\(repoName)/readme")
+        sessionManager.request(APIService.README_BASE_URL + "\(owner)/\(repoName)/\(branch)/README.md")
     }
 }
 
-
-extension DataRequest {
-    func map<D: Decodable>(to type: D.Type, completion: @escaping (D?, Error?) -> Void) {
-        self.validate().responseData { data in
-            switch data.result {
-            case .success(let value):
-                do {
-                    let decodedData = try JSONDecoder().decode(type, from: value)
-                    completion(decodedData, nil)
-                } catch {
-                    completion(nil, error)
-                }
-                
-            case .failure(let error):// не работает
-                let nsError = (error as NSError)
-                guard nsError.domain != NSURLErrorDomain,
-                      nsError.code != NSURLErrorTimedOut,
-                      nsError.code != NSURLErrorNotConnectedToInternet else {
-                    completion(nil, RequestError.noInternet)
-                    return
-                }
-                guard let code = data.response?.statusCode else {
-                    completion(nil, error) // неверно
-                    return
-                }
-                
-                switch code {
-                case 401:
-                    completion(nil, RequestError.wrongToken)
-                case 403:
-                    completion(nil, RequestError.noRights)
-                default:
-                    completion(nil, RequestError.unknown(code: code))
-                }
-            }
-        }
+struct Connectivity {
+  static let sharedInstance = NetworkReachabilityManager()!
+  static var isConnectedToInternet:Bool {
+      return self.sharedInstance.isReachable
     }
 }

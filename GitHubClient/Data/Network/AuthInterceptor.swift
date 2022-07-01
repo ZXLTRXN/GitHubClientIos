@@ -5,7 +5,7 @@
 //  Created by Ilya Shevtsov on 27.06.2022.
 //
 
-import Foundation
+
 import Alamofire
 
 class AuthInterceptor: RequestInterceptor {

@@ -46,8 +46,8 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
                 self?.repos = repos
                 self?.tableView.reloadData()
             }
-            if let error = error {
-                self?.showErrorView(self?.errorView, error: error as! RequestError) {
+            if let error = error as? RequestError {
+                self?.showErrorView(self?.errorView, error: error) {
                     self?.getData()
                 }
             } else {

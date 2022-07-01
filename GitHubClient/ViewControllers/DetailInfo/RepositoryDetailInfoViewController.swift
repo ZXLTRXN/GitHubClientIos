@@ -21,6 +21,7 @@ class RepositoryDetailInfoViewController: UIViewController {
     @IBOutlet private weak var starsLabel: UILabel!
     @IBOutlet private weak var watchersLabel: UILabel!
     @IBOutlet private weak var forksLabel: UILabel!
+    @IBOutlet private weak var readme: UILabel!
     @IBOutlet private weak var content: UIStackView!
     
     @IBOutlet private weak var errorView: ErrorView!
@@ -41,24 +42,40 @@ class RepositoryDetailInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        getData()
+        getInfo()
+        getReadme()
     }
     
-    private func getData() {
+    private func getInfo() {
         onLoading(started: true)
         appRepo.getRepository(owner: repo.owner, repoName: repo.name) { [weak self] repo, error in
             if let repo = repo {
                 self?.repo = repo
                 self?.updateRepoUI()
             }
-            if let error = error {
-                self?.showErrorView(self?.errorView, error: error as! RequestError) {
-                    self?.getData()
+            if let error = error as? RequestError {
+                self?.showErrorView(self?.errorView, error: error) {
+                    self?.getInfo()
                 }
             } else {
                 self?.hideErrorView(self?.errorView)
             }
             self?.onLoading(started: false)
+        }
+    }
+    
+    private func getReadme() {
+        appRepo.getRepositoryReadme(owner: repo.owner, repoName: repo.name, branch: repo.branch){ [weak self] (readme, error) in
+            self?.readme.text = readme ?? NSLocalizedString("EMPTY_README", comment: "")
+            
+            
+//            if let error = error {
+//                self?.showErrorView(self?.errorView, error: error as! RequestError) {
+//                    self?.getInfo()
+//                }
+//            } else {
+//                self?.hideErrorView(self?.errorView)
+//            }
         }
     }
     

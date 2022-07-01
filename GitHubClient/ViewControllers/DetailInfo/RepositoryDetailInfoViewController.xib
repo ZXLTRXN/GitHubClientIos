@@ -20,6 +20,7 @@
                 <outlet property="license" destination="lot-zU-gmD" id="I9t-yX-6Dc"/>
                 <outlet property="licenseLabel" destination="pus-vm-kik" id="qok-t9-CfK"/>
                 <outlet property="link" destination="MFX-NO-UDW" id="N9i-9a-rns"/>
+                <outlet property="readme" destination="IfS-Ul-Vdi" id="NmI-hR-Dme"/>
                 <outlet property="stars" destination="yTF-uD-vSJ" id="RYd-0x-gZy"/>
                 <outlet property="starsLabel" destination="A7I-Ij-obo" id="4eC-iw-2SZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

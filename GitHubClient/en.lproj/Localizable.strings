@@ -18,15 +18,17 @@
 "FORKS_LABEL" = "forks";
 "STARS_LABEL" = "stars";
 "WATCHERS_LABEL" = "watchers";
+"EMPTY_README" = "No README.md";
 
 "ERROR" = "Error";
+"INFO_FOR_DEVELOPERS" = "Information for developers";
 "OK" = "Ok";
 "NO_INTERNET" = "Connection error";
 "NO_INTERNET_SUGGESTION" = "Check your Internet connection";
 "WRONG_TOKEN" = "Wrong token";
 "WRONG_TOKEN_SUGGESTION" = "Check your token validity";
 "NO_RIGHTS" = "No rights";
-"NO_RIGHTS_SUGGESTION" = "Grant permissions to the token";
+"NO_RIGHTS_SUGGESTION" = "Grant permissions for token";
 "EMPTY" = "Empty";
 "NO_REPOSITORIES" = "No repositories at the moment";
 "UNKNOWN_ERROR" = "Something error";
