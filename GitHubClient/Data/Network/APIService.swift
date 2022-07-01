@@ -11,6 +11,11 @@ import Alamofire
 class APIService {
     private static let BASE_URL = "https://api.github.com/"
     private static let README_BASE_URL = "https://raw.githubusercontent.com/"
+    
+    static let WRONG_TOKEN_CODE = 401
+    static let NO_RIGHTS_CODE = 403
+    static let NOT_FOUND_CODE = 404
+    
     static let shared = APIService()
     
     private let sessionManager: Session = {

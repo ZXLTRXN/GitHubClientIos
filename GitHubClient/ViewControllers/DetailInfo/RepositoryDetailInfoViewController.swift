@@ -8,6 +8,7 @@
 import UIKit
 import SafariServices
 import MaterialComponents.MaterialActivityIndicator
+import SwiftyMarkdown
 
 
 class RepositoryDetailInfoViewController: UIViewController {
@@ -25,7 +26,10 @@ class RepositoryDetailInfoViewController: UIViewController {
     @IBOutlet private weak var content: UIStackView!
     
     @IBOutlet private weak var errorView: ErrorView!
+    @IBOutlet private weak var readmeErrorView: ErrorView!
+    
     @IBOutlet private weak var activityIndicator: MDCActivityIndicator!
+    @IBOutlet private weak var readmeActivityIndicator: MDCActivityIndicator!
     
     private var repo: Repo
     private let appRepo = AppRepository.shared
@@ -53,7 +57,7 @@ class RepositoryDetailInfoViewController: UIViewController {
                 self?.repo = repo
                 self?.updateRepoUI()
             }
-            if let error = error as? RequestError {
+            if let error = error {
                 self?.showErrorView(self?.errorView, error: error) {
                     self?.getInfo()
                 }
@@ -65,17 +69,25 @@ class RepositoryDetailInfoViewController: UIViewController {
     }
     
     private func getReadme() {
+        readmeActivityIndicator.show()
         appRepo.getRepositoryReadme(owner: repo.owner, repoName: repo.name, branch: repo.branch){ [weak self] (readme, error) in
-            self?.readme.text = readme ?? NSLocalizedString("EMPTY_README", comment: "")
+            self?.readmeActivityIndicator.hide()
+            if let error = error {
+                if case .readmeNotFound = error {
+                    self?.readme.text = NSLocalizedString("NO_README", comment: "")
+                    return
+                }
+                self?.showErrorView(self?.readmeErrorView, error: error) { self?.getReadme() }
+                return
+            }
+            self?.hideErrorView(self?.readmeErrorView)
             
-            
-//            if let error = error {
-//                self?.showErrorView(self?.errorView, error: error as! RequestError) {
-//                    self?.getInfo()
-//                }
-//            } else {
-//                self?.hideErrorView(self?.errorView)
-//            }
+            guard let readme = readme else {
+                self?.readme.text = NSLocalizedString("EMPTY_README", comment: "")
+                return
+            }
+            let md = SwiftyMarkdown(string: readme)
+            self?.readme.attributedText = md.attributedString()
         }
     }
     
@@ -96,6 +108,9 @@ class RepositoryDetailInfoViewController: UIViewController {
         
         activityIndicator.setColor()
         activityIndicator.radius = 28
+        
+        readmeActivityIndicator.setColor()
+        readmeActivityIndicator.radius = 12
         
         licenseLabel.text = NSLocalizedString("LICENSE_LABEL", comment: "")
         starsLabel.text = NSLocalizedString("STARS_LABEL", comment: "")

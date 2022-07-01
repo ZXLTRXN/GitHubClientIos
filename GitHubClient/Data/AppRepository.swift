@@ -12,7 +12,7 @@ class AppRepository {
     private let storage = KeyValueStorage.shared
     static let shared = AppRepository()
     
-    func getRepositories(completion: @escaping (Array<Repo>?, Error?) -> Void) {
+    func getRepositories(completion: @escaping (Array<Repo>?, RequestError?) -> Void) {
         api.getRepositories().mapJSON(to: Array<RepoNetwork>.self) {(reposNetwork, error) in
             guard error == nil else {
                 completion(nil, error)
@@ -29,7 +29,7 @@ class AppRepository {
         }
     }
     
-    func getRepository(owner: String, repoName: String, completion: @escaping (Repo?, Error?) -> Void) {
+    func getRepository(owner: String, repoName: String, completion: @escaping (Repo?, RequestError?) -> Void) {
         api.getRepository(owner: owner, repoName: repoName).mapJSON(to: RepoNetwork.self){ (repoNetwork, error) in
             guard error == nil else {
                 completion(nil, error)
@@ -39,9 +39,15 @@ class AppRepository {
         }
     }
     
-    func getRepositoryReadme(owner: String, repoName: String, branch: String, completion: @escaping (String?, Error?) -> Void) {
+    func getRepositoryReadme(owner: String, repoName: String, branch: String, completion: @escaping (String?, RequestError?) -> Void) {
         api.getRepositoryReadme(owner: owner, repoName: repoName, branch: branch).mapString() { (readme, error) in
             guard error == nil else {
+                if case .unknown(let statusCode) = error {
+                    if statusCode == APIService.NOT_FOUND_CODE {
+                        completion(nil, RequestError.readmeNotFound)
+                        return
+                    }
+                }
                 completion(nil, error)
                 return
             }
@@ -49,7 +55,7 @@ class AppRepository {
         }
     }
     
-    func signIn(token: String, completion: @escaping (Error?) -> Void) {
+    func signIn(token: String, completion: @escaping (RequestError?) -> Void) {
         api.getUser(token: token).mapJSON(to: UserInfo.self) {(_, error) in
             if error == nil {
                 self.storage.authToken = token

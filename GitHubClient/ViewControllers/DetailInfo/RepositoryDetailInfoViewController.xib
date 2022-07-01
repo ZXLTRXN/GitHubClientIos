@@ -21,6 +21,8 @@
                 <outlet property="licenseLabel" destination="pus-vm-kik" id="qok-t9-CfK"/>
                 <outlet property="link" destination="MFX-NO-UDW" id="N9i-9a-rns"/>
                 <outlet property="readme" destination="IfS-Ul-Vdi" id="NmI-hR-Dme"/>
+                <outlet property="readmeActivityIndicator" destination="ey4-5i-v1E" id="iai-t9-xfw"/>
+                <outlet property="readmeErrorView" destination="CkY-uf-Foy" id="kDW-sB-8Pj"/>
                 <outlet property="stars" destination="yTF-uD-vSJ" id="RYd-0x-gZy"/>
                 <outlet property="starsLabel" destination="A7I-Ij-obo" id="4eC-iw-2SZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -162,12 +164,30 @@
                             </constraints>
                             <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="0.0" right="8"/>
                         </stackView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXX-KP-7gI" userLabel="Readme Error View" customClass="ErrorView" customModule="GitHubClient" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="197.5" width="414" height="620.5"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ey4-5i-v1E" userLabel="Readme Activity Indicator" customClass="MDCActivityIndicator">
+                            <rect key="frame" x="195" y="231.5" width="24" height="24"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="MgD-Mw-id3"/>
+                                <constraint firstAttribute="width" constant="24" id="dJs-qQ-q0G"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="T8x-CP-uF6" firstAttribute="leading" secondItem="wvK-lo-Ki1" secondAttribute="leading" id="0He-fZ-L0X"/>
+                        <constraint firstItem="nXX-KP-7gI" firstAttribute="leading" secondItem="fAR-IS-xnH" secondAttribute="leading" id="0oo-2t-m1E"/>
                         <constraint firstItem="T8x-CP-uF6" firstAttribute="bottom" secondItem="wvK-lo-Ki1" secondAttribute="bottom" id="I1F-9I-IHy"/>
+                        <constraint firstItem="ey4-5i-v1E" firstAttribute="top" secondItem="T8x-CP-uF6" secondAttribute="bottom" constant="34" id="LhA-IW-xII"/>
+                        <constraint firstItem="ey4-5i-v1E" firstAttribute="centerX" secondItem="YUb-QQ-ZSg" secondAttribute="centerX" id="Prc-7B-hF5"/>
+                        <constraint firstItem="fAR-IS-xnH" firstAttribute="bottom" secondItem="nXX-KP-7gI" secondAttribute="bottom" id="ULQ-tq-ciS"/>
                         <constraint firstItem="T8x-CP-uF6" firstAttribute="top" secondItem="wvK-lo-Ki1" secondAttribute="top" id="WyK-uW-5Nb"/>
                         <constraint firstItem="T8x-CP-uF6" firstAttribute="width" secondItem="fAR-IS-xnH" secondAttribute="width" id="dsJ-rN-uFR"/>
+                        <constraint firstItem="fAR-IS-xnH" firstAttribute="trailing" secondItem="nXX-KP-7gI" secondAttribute="trailing" id="giS-Wo-jr0"/>
+                        <constraint firstItem="nXX-KP-7gI" firstAttribute="top" secondItem="T8x-CP-uF6" secondAttribute="bottom" id="jkr-RE-wTo"/>
                         <constraint firstItem="T8x-CP-uF6" firstAttribute="trailing" secondItem="wvK-lo-Ki1" secondAttribute="trailing" id="tUz-3h-qAE"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="wvK-lo-Ki1"/>
@@ -203,6 +223,11 @@
             <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
         </view>
     </objects>
+    <designables>
+        <designable name="FLv-sM-zfu">
+            <size key="intrinsicContentSize" width="26.5" height="26.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="fork" width="24" height="24"/>
         <image name="license" width="24" height="24"/>

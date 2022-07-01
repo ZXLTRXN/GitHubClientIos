@@ -5,17 +5,15 @@
 //  Created by Ilya Shevtsov on 01.07.2022.
 //
 
-import Foundation
-
 extension Error {
     func toRequestError(statusCode: Int?) -> RequestError {
         
         guard Connectivity.isConnectedToInternet else { return RequestError.noInternet }
                 
         switch statusCode {
-        case 401:
+        case APIService.WRONG_TOKEN_CODE:
             return RequestError.wrongToken
-        case 403:
+        case APIService.NO_RIGHTS_CODE:
             return RequestError.noRights
         default:
             return RequestError.unknown(statusCode: statusCode)

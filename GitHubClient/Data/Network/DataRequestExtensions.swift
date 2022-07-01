@@ -9,7 +9,7 @@ import Alamofire
 
 
 extension DataRequest {
-    func mapJSON<D: Decodable>(to type: D.Type, completion: @escaping (D?, Error?) -> Void) {
+    func mapJSON<D: Decodable>(to type: D.Type, completion: @escaping (D?, RequestError?) -> Void) {
         self.validate().responseData { data in
             switch data.result {
             case .success(let value):
@@ -25,7 +25,7 @@ extension DataRequest {
         }
     }
     
-    func mapString(completion: @escaping (String?, Error?) -> Void) {
+    func mapString(completion: @escaping (String?, RequestError?) -> Void) {
         self.validate().responseData { data in
             switch data.result {
             case .success(let value):

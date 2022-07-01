@@ -18,7 +18,8 @@
 "FORKS_LABEL" = "forks";
 "STARS_LABEL" = "stars";
 "WATCHERS_LABEL" = "watchers";
-"EMPTY_README" = "No README.md";
+"NO_README" = "No README.md";
+"EMPTY_README" = "Empty README.md";
 
 "ERROR" = "Error";
 "INFO_FOR_DEVELOPERS" = "Information for developers";

@@ -72,7 +72,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
                     self?.navigationController?.setViewControllers([RepositoriesListViewController()], animated: true)
                     return
                 }
-                self?.showAlert(for: error as! RequestError, sender: sender)
+                self?.showAlert(for: error, sender: sender)
             }
         }
     }
