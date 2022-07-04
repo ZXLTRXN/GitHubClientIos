@@ -40,32 +40,27 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     private func getData() {
-        onLoading(started: true)
+        loadingStart()
         appRepo.getRepositories { [weak self] repos, error in
+            self?.activityIndicator.hide()
             if let repos = repos {
+                self?.hideErrorView(self?.errorView)
                 self?.repos = repos
                 self?.tableView.reloadData()
+                self?.tableView.isHidden = false
+                return
             }
+            
             if let error = error {
-                self?.showErrorView(self?.errorView, error: error) {
-                    self?.getData()
-                }
-            } else {
-                self?.hideErrorView(self?.errorView)
+                self?.showErrorView(self?.errorView, error: error) { self?.getData() }
             }
-            self?.onLoading(started: false)
         }
     }
     
-    private func onLoading(started flag: Bool) {
-        if flag {
-            hideErrorView(errorView)
-            tableView.isHidden = true
-            activityIndicator.show()
-        } else {
-            tableView.isHidden = false
-            activityIndicator.hide()
-        }
+    private func loadingStart() {
+        hideErrorView(errorView)
+        tableView.isHidden = true
+        activityIndicator.show()
     }
     
     // MARK: - DataSource
