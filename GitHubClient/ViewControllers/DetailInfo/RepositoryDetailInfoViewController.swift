@@ -46,48 +46,55 @@ class RepositoryDetailInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        getInfo()
+        getRepoInfo()
         getReadme()
     }
     
-    private func getInfo() {
-        onLoading(started: true)
+    private func getRepoInfo() {
+        loadingStart(content: content, errorView: errorView, indicator: activityIndicator)
         appRepo.getRepository(owner: repo.owner, repoName: repo.name) { [weak self] repo, error in
+            self?.activityIndicator.hide()
+            if let error = error {
+                self?.content.isHidden = true
+                self?.showErrorView(self?.errorView, error: error) { self?.getRepoInfo() }
+                return
+            }
+            self?.hideErrorView(self?.errorView)
             if let repo = repo {
                 self?.repo = repo
                 self?.updateRepoUI()
             }
-            if let error = error {
-                self?.showErrorView(self?.errorView, error: error) {
-                    self?.getInfo()
-                }
-            } else {
-                self?.hideErrorView(self?.errorView)
-            }
-            self?.onLoading(started: false)
+            self?.content.isHidden = false
         }
     }
     
     private func getReadme() {
-        readmeActivityIndicator.show()
+        loadingStart(content: readme, errorView: readmeErrorView, indicator: readmeActivityIndicator)
         appRepo.getRepositoryReadme(owner: repo.owner, repoName: repo.name, branch: repo.branch){ [weak self] (readme, error) in
-            self?.readmeActivityIndicator.hide()
-            if let error = error {
-                if case .readmeNotFound = error {
-                    self?.readme.text = NSLocalizedString("NO_README", comment: "")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                
+                self?.readmeActivityIndicator.hide()
+                if let error = error {
+                    if case .readmeNotFound = error {
+                        self?.readme.text = NSLocalizedString("NO_README", comment: "")
+                        self?.readme.isHidden = false
+                        return
+                    }
+                    self?.showErrorView(self?.readmeErrorView, error: error) { self?.getReadme() }
                     return
                 }
-                self?.showErrorView(self?.readmeErrorView, error: error) { self?.getReadme() }
-                return
+                self?.hideErrorView(self?.readmeErrorView)
+                self?.readme.isHidden = false
+                guard let readme = readme else {
+                    self?.readme.text = NSLocalizedString("EMPTY_README", comment: "")
+                    return
+                }
+                let md = SwiftyMarkdown(string: readme)
+                self?.readme.attributedText = md.attributedString()
+                
             }
-            self?.hideErrorView(self?.readmeErrorView)
             
-            guard let readme = readme else {
-                self?.readme.text = NSLocalizedString("EMPTY_README", comment: "")
-                return
-            }
-            let md = SwiftyMarkdown(string: readme)
-            self?.readme.attributedText = md.attributedString()
         }
     }
     
@@ -118,14 +125,10 @@ class RepositoryDetailInfoViewController: UIViewController {
         watchersLabel.text = NSLocalizedString("WATCHERS_LABEL", comment: "")
     }
     
-    private func onLoading(started flag: Bool) {
-        content.isHidden = flag
-        if flag {
-            activityIndicator.show()
-            errorView.isHidden = true
-        } else {
-            activityIndicator.hide()
-        }
+    private func loadingStart(content: UIView, errorView: ErrorView, indicator: MDCActivityIndicator) {
+        content.isHidden = true
+        hideErrorView(errorView)
+        indicator.show()
     }
     
     @IBAction private func linkPressed() {
