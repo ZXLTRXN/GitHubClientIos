@@ -53,6 +53,9 @@ class RepositoryDetailInfoViewController: UIViewController {
     private func getRepoInfo() {
         loadingStart(content: content, errorView: errorView, indicator: activityIndicator)
         appRepo.getRepository(owner: repo.owner, repoName: repo.name) { [weak self] repo, error in
+            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            
             self?.activityIndicator.hide()
             if let error = error {
                 self?.content.isHidden = true
@@ -65,6 +68,8 @@ class RepositoryDetailInfoViewController: UIViewController {
                 self?.updateRepoUI()
             }
             self?.content.isHidden = false
+                
+//            }
         }
     }
     
@@ -72,7 +77,7 @@ class RepositoryDetailInfoViewController: UIViewController {
         loadingStart(content: readme, errorView: readmeErrorView, indicator: readmeActivityIndicator)
         appRepo.getRepositoryReadme(owner: repo.owner, repoName: repo.name, branch: repo.branch){ [weak self] (readme, error) in
             
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 
                 self?.readmeActivityIndicator.hide()
                 if let error = error {
@@ -93,7 +98,7 @@ class RepositoryDetailInfoViewController: UIViewController {
                 let md = SwiftyMarkdown(string: readme)
                 self?.readme.attributedText = md.attributedString()
                 
-//            }
+            }
             
         }
     }

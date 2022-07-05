@@ -41,6 +41,10 @@ class AppRepository {
     
     func getRepositoryReadme(owner: String, repoName: String, branch: String, completion: @escaping (String?, RequestError?) -> Void) {
         api.getRepositoryReadme(owner: owner, repoName: repoName, branch: branch).mapString() { (readme, error) in
+            
+//            completion(nil, RequestError.noInternet)
+//            return
+            
             guard error == nil else {
                 if case .unknown(let statusCode) = error {
                     if statusCode == APIService.NOT_FOUND_CODE {
