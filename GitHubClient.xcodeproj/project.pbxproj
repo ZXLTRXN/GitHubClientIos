@@ -30,6 +30,7 @@
 		C274B58F286410A200794E21 /* RepositoriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C274B58D286410A200794E21 /* RepositoriesListViewController.xib */; };
 		C274B592286411F500794E21 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274B590286411F500794E21 /* RepositoryTableViewCell.swift */; };
 		C274B593286411F500794E21 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C274B591286411F500794E21 /* RepositoryTableViewCell.xib */; };
+		C29FB8592873E165008CB7BA /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FB8582873E165008CB7BA /* ColorManager.swift */; };
 		C2B0F43628645E5D005C9BFE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F43528645E5D005C9BFE /* ErrorView.swift */; };
 		C2B0F43828645EB0005C9BFE /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B0F43728645EB0005C9BFE /* ErrorView.xib */; };
 		C2B0F43A28656161005C9BFE /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0F43928656161005C9BFE /* RequestError.swift */; };
@@ -97,6 +98,7 @@
 		C274B58D286410A200794E21 /* RepositoriesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesListViewController.xib; sourceTree = "<group>"; };
 		C274B590286411F500794E21 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		C274B591286411F500794E21 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
+		C29FB8582873E165008CB7BA /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		C2B0F43528645E5D005C9BFE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C2B0F43728645EB0005C9BFE /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		C2B0F43928656161005C9BFE /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				C2B0F44A286987CC005C9BFE /* Network */,
 				C2B0F44128695467005C9BFE /* AppRepository.swift */,
 				C2B0F446286968DE005C9BFE /* KeyValueStorage.swift */,
+				C29FB8582873E165008CB7BA /* ColorManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				C2B0F43A28656161005C9BFE /* RequestError.swift in Sources */,
 				C20F531228641EF8007B024A /* UIColorExtensions.swift in Sources */,
 				C2B0F450286AE6CB005C9BFE /* MDCActivityIndicatorExtensions.swift in Sources */,
+				C29FB8592873E165008CB7BA /* ColorManager.swift in Sources */,
 				C274B5882861AB7D00794E21 /* TextFieldWithPadding.swift in Sources */,
 				C2B0F447286968DE005C9BFE /* KeyValueStorage.swift in Sources */,
 				C274B58E286410A200794E21 /* RepositoriesListViewController.swift in Sources */,

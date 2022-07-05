@@ -45,9 +45,9 @@ struct License: Codable {
 
 extension RepoNetwork {
     func toRepo() -> Repo {
-        Repo(id: id, owner: owner.login, name: name, htmlUrl: htmlUrl,
-             description: description, language: language, license: license?.name,
-             languageColor: "#FFFFFF", forks: forks, stars: stars,
-             watchers: watchers, branch: branch)
+        let color: String = ColorManager.shared.getColor(for: language)
+        return Repo(id: id, owner: owner.login, name: name, htmlUrl: htmlUrl,
+                    languageColor: color, description: description, language: language, license: license?.name,
+                    forks: forks, stars: stars, watchers: watchers, branch: branch)
     }
 }

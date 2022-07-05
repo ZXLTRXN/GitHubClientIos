@@ -12,10 +12,10 @@ struct Repo {
     let owner: String
     let name: String
     let htmlUrl: String
+    var languageColor: String
     var description: String? = nil
     var language: String? = nil
     var license: String? = nil
-    var languageColor: String? = nil
     var forks: Int = 0
     var stars: Int = 0
     var watchers: Int = 0
