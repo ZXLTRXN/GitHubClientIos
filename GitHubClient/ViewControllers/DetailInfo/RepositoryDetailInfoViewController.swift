@@ -53,9 +53,6 @@ class RepositoryDetailInfoViewController: UIViewController {
     private func getRepoInfo() {
         loadingStart(content: content, errorView: errorView, indicator: activityIndicator)
         appRepo.getRepository(owner: repo.owner, repoName: repo.name) { [weak self] repo, error in
-            
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            
             self?.activityIndicator.hide()
             if let error = error {
                 self?.content.isHidden = true
@@ -68,38 +65,30 @@ class RepositoryDetailInfoViewController: UIViewController {
                 self?.updateRepoUI()
             }
             self?.content.isHidden = false
-                
-//            }
         }
     }
     
     private func getReadme() {
         loadingStart(content: readme, errorView: readmeErrorView, indicator: readmeActivityIndicator)
         appRepo.getRepositoryReadme(owner: repo.owner, repoName: repo.name, branch: repo.branch){ [weak self] (readme, error) in
-            
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                
-                self?.readmeActivityIndicator.hide()
-                if let error = error {
-                    if case .readmeNotFound = error {
-                        self?.readme.text = NSLocalizedString("NO_README", comment: "")
-                        self?.readme.isHidden = false
-                        return
-                    }
-                    self?.showErrorView(self?.readmeErrorView, error: error) { self?.getReadme() }
+            self?.readmeActivityIndicator.hide()
+            if let error = error {
+                if case .readmeNotFound = error {
+                    self?.readme.text = NSLocalizedString("NO_README", comment: "")
+                    self?.readme.isHidden = false
                     return
                 }
-                self?.hideErrorView(self?.readmeErrorView)
-                self?.readme.isHidden = false
-                guard let readme = readme else {
-                    self?.readme.text = NSLocalizedString("EMPTY_README", comment: "")
-                    return
-                }
-                let md = SwiftyMarkdown(string: readme)
-                self?.readme.attributedText = md.attributedString()
-                
-//            }
-            
+                self?.showErrorView(self?.readmeErrorView, error: error) { self?.getReadme() }
+                return
+            }
+            self?.hideErrorView(self?.readmeErrorView)
+            self?.readme.isHidden = false
+            guard let readme = readme else {
+                self?.readme.text = NSLocalizedString("EMPTY_README", comment: "")
+                return
+            }
+            let md = SwiftyMarkdown(string: readme)
+            self?.readme.attributedText = md.attributedString()
         }
     }
     
