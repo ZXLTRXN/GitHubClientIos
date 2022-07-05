@@ -29,10 +29,11 @@ class APIService {
         sessionManager.request(APIService.BASE_URL + "user", headers: ["Authorization" : "token \(token)"])
     }
     
-    func getRepositories() -> DataRequest {
-        sessionManager.request(APIService.BASE_URL + "user/repos")
+    func getRepositories(sortBy: String = "updated", amount: Int = 10) -> DataRequest {
+        let params: Parameters = ["sort": sortBy, "per_page": amount]
+        return sessionManager.request(APIService.BASE_URL + "user/repos", parameters: params)
     }
-    
+
     func getRepository(owner: String, repoName: String) -> DataRequest {
         sessionManager.request(APIService.BASE_URL + "repos/\(owner)/\(repoName)")
     }

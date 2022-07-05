@@ -72,7 +72,7 @@ class RepositoryDetailInfoViewController: UIViewController {
         loadingStart(content: readme, errorView: readmeErrorView, indicator: readmeActivityIndicator)
         appRepo.getRepositoryReadme(owner: repo.owner, repoName: repo.name, branch: repo.branch){ [weak self] (readme, error) in
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 
                 self?.readmeActivityIndicator.hide()
                 if let error = error {
@@ -93,7 +93,7 @@ class RepositoryDetailInfoViewController: UIViewController {
                 let md = SwiftyMarkdown(string: readme)
                 self?.readme.attributedText = md.attributedString()
                 
-            }
+//            }
             
         }
     }
