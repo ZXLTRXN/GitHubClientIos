@@ -9,19 +9,19 @@ import UIKit
 
 class TextFieldWithPadding: UITextField {
     var textPadding = UIEdgeInsets(
-            top: 12,
-            left: 16,
-            bottom: 12,
-            right: 16
-        )
-
-        override func textRect(forBounds bounds: CGRect) -> CGRect {
-            let rect = super.textRect(forBounds: bounds)
-            return rect.inset(by: textPadding)
-        }
-
-        override func editingRect(forBounds bounds: CGRect) -> CGRect {
-            let rect = super.editingRect(forBounds: bounds)
-            return rect.inset(by: textPadding)
-        }
+        top: 12,
+        left: 16,
+        bottom: 12,
+        right: 16
+    )
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.textRect(forBounds: bounds)
+        return rect.inset(by: textPadding)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.editingRect(forBounds: bounds)
+        return rect.inset(by: textPadding)
+    }
 }

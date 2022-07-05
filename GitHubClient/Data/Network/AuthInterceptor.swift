@@ -34,8 +34,8 @@ class AuthInterceptor: RequestInterceptor {
         let response = request.task?.response as? HTTPURLResponse
         
         if let statusCode = response?.statusCode,
-            (500...599).contains(statusCode),
-            request.retryCount < retryLimit {
+           (500...599).contains(statusCode),
+           request.retryCount < retryLimit {
             completion(.retryWithDelay(retryDelay))
         } else {
             return completion(.doNotRetry)

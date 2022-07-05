@@ -9,7 +9,7 @@ import UIKit
 import MaterialComponents.MaterialActivityIndicator
 
 class AuthViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet private weak var tokenTextField: UITextField!
     @IBOutlet private weak var errorLabel: UILabel!
     @IBOutlet private weak var signInButton: UIButton!
@@ -31,7 +31,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -39,7 +39,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     
     private func setUI() {
         tokenTextField.placeholder = NSLocalizedString("TOKEN_PLACEHOLDER", comment: "")
-
+        
         signInButton.setTitle(NSLocalizedString("SIGN_IN_BUTTON", comment: ""), for: .normal)
         signInButton.layer.cornerRadius = borderRadius
         signInButton.clipsToBounds = true

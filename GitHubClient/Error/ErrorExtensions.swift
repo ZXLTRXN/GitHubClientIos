@@ -9,7 +9,7 @@ extension Error {
     func toRequestError(statusCode: Int?) -> RequestError {
         
         guard Connectivity.isConnectedToInternet else { return RequestError.noInternet }
-                
+        
         switch statusCode {
         case APIService.WRONG_TOKEN_CODE:
             return RequestError.wrongToken

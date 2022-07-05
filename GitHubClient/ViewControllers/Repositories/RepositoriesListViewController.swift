@@ -9,7 +9,7 @@ import UIKit
 import MaterialComponents.MaterialActivityIndicator
 
 class RepositoriesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var errorView: ErrorView!
     @IBOutlet private weak var activityIndicator: MDCActivityIndicator!

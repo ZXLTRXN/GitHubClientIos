@@ -10,11 +10,11 @@ class KeyboardAwareAnimatedConstraint: NSLayoutConstraint {
         setupKeyboardObservers()
         defaultConst = constant
     }
-
+    
     deinit {
         removeKeyboardObservers()
     }
-
+    
     private func setupKeyboardObservers() {
         NotificationCenter.default.addObserver(
             self,
@@ -29,7 +29,7 @@ class KeyboardAwareAnimatedConstraint: NSLayoutConstraint {
             object: nil
         )
     }
-
+    
     private func removeKeyboardObservers() {
         NotificationCenter.default.removeObserver(
             self,
@@ -42,7 +42,7 @@ class KeyboardAwareAnimatedConstraint: NSLayoutConstraint {
             object: nil
         )
     }
-
+    
     @objc
     dynamic func keyboardWillShow(
         notification: NSNotification
@@ -54,7 +54,7 @@ class KeyboardAwareAnimatedConstraint: NSLayoutConstraint {
             self.constant = self.defaultConst + keyboardFrame.height - safeAreaBottomInset
         }
     }
-
+    
     @objc
     dynamic func keyboardWillHide(
         notification: NSNotification
@@ -63,7 +63,7 @@ class KeyboardAwareAnimatedConstraint: NSLayoutConstraint {
             self.constant = self.defaultConst
         }
     }
-
+    
     func animateWithKeyboard(
         notification: NSNotification,
         animations: ((_ keyboardFrame: CGRect) -> Void)?

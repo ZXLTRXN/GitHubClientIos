@@ -41,12 +41,12 @@ extension UIViewController {
     
     func showAlert(msg: String, sender: UIView) {
         let alertController = UIAlertController(title:
-               msg, message: nil,
-               preferredStyle: .alert)
+                                                    msg, message: nil,
+                                                preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-               style: .cancel, handler: nil)
-            alertController.addAction(cancelAction)
+                                         style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
         
         alertController.popoverPresentationController?.sourceView = sender
         present(alertController, animated: true, completion: nil)
