@@ -41,10 +41,10 @@ extension UIViewController {
         errorView.isHidden = true
     }
     
-    func showAlert(msg: String, sender: UIView) {
+    func showAlert(title: String, msg: String, sender: UIView) {
         let alertController = UIAlertController(
-            title: msg,
-            message: nil,
+            title: title,
+            message: msg,
             preferredStyle: .alert
         )
         
@@ -59,15 +59,14 @@ extension UIViewController {
     }
     
     func showAlert(for error: RequestError, sender: UIView){
-        var msg = NSLocalizedString("errorAlert.title", comment: "")
+        var msg: String
         switch error {
         case .unknown:
-            msg.append(contentsOf: "\n\(error.failureReason!) ")
-            msg.append(contentsOf: NSLocalizedString("errorAlert.text.informationForDevelopers", comment: ""))
+            msg = "\(error.failureReason!)"
         default:
-            msg.append(contentsOf: "\n\(error.errorDescription!)\n\(error.recoverySuggestion!)")
+            msg = "\(error.errorDescription!)\n\(error.recoverySuggestion!)"
         }
-        showAlert(msg: msg, sender: sender)
+        showAlert(title: NSLocalizedString("errorAlert.title", comment: ""), msg: msg, sender: sender)
     }
     
     func setExitButton(){

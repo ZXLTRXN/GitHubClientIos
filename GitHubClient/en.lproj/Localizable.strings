@@ -22,7 +22,6 @@
 "repoDetails.readmeLabel.emptyReadme.title" = "Empty README.md";
 
 "errorAlert.title" = "Error";
-"errorAlert.text.informationForDevelopers" = "Information for developers";
 "errorAlert.okButton.title" = "Ok";
 
 "errorType.connectionError.description" = "Connection error";
@@ -37,6 +36,7 @@
 "errorType.noRepositories.suggestion" = "No repositories at the moment";
 "errorType.unknownError.description" = "Something error";
 "errorType.unknownError.suggestion" = "Check your something";
+"errorType.unknownError.failureReason" = "error data: %@ / error code: %@\ninformation for developers";
 
 "errorView.reloadButton.refresh.title" = "Refresh";
 "errorView.reloadButton.retry.title" = "Retry";

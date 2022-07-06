@@ -38,8 +38,17 @@ extension RequestError : LocalizedError {
     public var failureReason: String? {
         switch self {
         case .unknown(let statusCode):
-            let codeString = statusCode == nil ? "none" : "\(String(describing: statusCode))"
-            return "statusCode: \(codeString); description: \(self.localizedDescription)"
+            var codeString: String = "null"
+            if let statusCode = statusCode {
+                codeString = "\(statusCode)"
+            }
+            let str = String(
+                format: NSLocalizedString("errorType.unknownError.failureReason", comment: ""),
+                "\(self.localizedDescription)",
+                codeString
+            )
+            print(str)
+            return str
         default:
             return nil
         }
