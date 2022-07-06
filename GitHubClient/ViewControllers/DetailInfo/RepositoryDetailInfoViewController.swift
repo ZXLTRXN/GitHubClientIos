@@ -104,7 +104,6 @@ class RepositoryDetailInfoViewController: UIViewController {
     private func setUI(){
         setExitButton()
         
-        link.isUserInteractionEnabled = true
         link.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.linkPressed)))
         
         activityIndicator.setColor()
