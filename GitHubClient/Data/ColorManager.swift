@@ -5,11 +5,9 @@
 //  Created by Ilya Shevtsov on 05.07.2022.
 //
 
-import Foundation
 import UIKit
 
 class ColorManager {
-    private static let defaultColor: String = "#FFFFFF"
     private let colors: [String: String]
     
     static let shared = ColorManager()
@@ -23,7 +21,8 @@ class ColorManager {
     }
     
     func getColor(for language: String?) -> String {
-        guard let language = language else { return ColorManager.defaultColor }
-        return colors[language] ?? ColorManager.defaultColor
+        let color: String = UIColor(named: "DefaultLanguage")!.toHex()!
+        guard let language = language else { return color }
+        return colors[language] ?? color
     }
 }
