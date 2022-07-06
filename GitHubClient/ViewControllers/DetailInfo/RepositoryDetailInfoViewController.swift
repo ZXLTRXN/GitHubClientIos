@@ -84,11 +84,11 @@ class RepositoryDetailInfoViewController: UIViewController {
             }
             self?.hideErrorView(self?.readmeErrorView)
             self?.readmeLabel.isHidden = false
-            guard let readme = readme else {
+            if (readme ?? "").isEmpty {
                 self?.readmeLabel.text = NSLocalizedString("repoDetails.readmeLabel.emptyReadme.title", comment: "")
                 return
             }
-            let md = SwiftyMarkdown(string: readme)
+            let md = SwiftyMarkdown(string: readme!)
             self?.readmeLabel.attributedText = md.attributedString()
         }
     }
