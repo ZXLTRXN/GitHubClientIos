@@ -12,7 +12,7 @@ class ErrorView: UIView {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var suggestionLabel: UILabel!
-    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private weak var reloadButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,11 +37,11 @@ class ErrorView: UIView {
         descriptionLabel.textColor = color
         suggestionLabel.text = suggestion
         
-        button.layer.cornerRadius = 8
-        button.clipsToBounds = true
-        button.setTitle(buttonTitle, for: .normal)
+        reloadButton.layer.cornerRadius = 8
+        reloadButton.clipsToBounds = true
+        reloadButton.setTitle(buttonTitle, for: .normal)
         
-        button.addAction(onButtonTap)
+        reloadButton.addAction(onButtonTap)
     }
     
     

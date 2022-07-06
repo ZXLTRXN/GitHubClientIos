@@ -30,7 +30,7 @@
 "errorType.wrongToken.description" = "Wrong token";
 "errorType.wrongToken.suggestion" = "Check your token validity";
 "errorType.noRights.description" = "No rights";
-"errorType.noRights.suggestion" = "Grant permissions for token";
+"errorType.noRights.suggestion" = "Grant permissions to the token";
 "errorType.readmeNotFound.description" = "No README.md";
 "errorType.readmeNotFound.suggestion" = "Add README.md to the repository";
 "errorType.noRepositories.description" = "Empty";
