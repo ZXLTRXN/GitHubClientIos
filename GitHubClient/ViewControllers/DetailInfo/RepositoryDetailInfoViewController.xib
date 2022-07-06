@@ -176,7 +176,7 @@
                             <constraints>
                                 <constraint firstItem="L52-G6-8B5" firstAttribute="width" secondItem="T8x-CP-uF6" secondAttribute="width" constant="-16" id="Ffo-u7-BJ2"/>
                                 <constraint firstItem="ey4-5i-v1E" firstAttribute="width" secondItem="T8x-CP-uF6" secondAttribute="width" constant="-16" id="amJ-tN-gtU"/>
-                                <constraint firstItem="nXX-KP-7gI" firstAttribute="width" secondItem="T8x-CP-uF6" secondAttribute="width" multiplier="0.961353" id="hvE-TN-nFM"/>
+                                <constraint firstItem="nXX-KP-7gI" firstAttribute="width" secondItem="T8x-CP-uF6" secondAttribute="width" constant="-16" id="hvE-TN-nFM"/>
                             </constraints>
                             <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="0.0" right="8"/>
                         </stackView>
@@ -221,6 +221,14 @@
             <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
         </view>
     </objects>
+    <designables>
+        <designable name="FLv-sM-zfu">
+            <size key="intrinsicContentSize" width="26.5" height="26.5"/>
+        </designable>
+        <designable name="ey4-5i-v1E">
+            <size key="intrinsicContentSize" width="26.5" height="26.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="fork" width="24" height="24"/>
         <image name="license" width="24" height="24"/>
