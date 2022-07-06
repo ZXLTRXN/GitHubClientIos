@@ -29,9 +29,11 @@ extension UIViewController {
             buttonTitle = NSLocalizedString("errorView.reloadButton.retry.title", comment: "")
         }
         
-        errorView.setUI(image: image, description: error.errorDescription!,
-                        suggestion: error.recoverySuggestion!,
-                        color: color, buttonTitle: buttonTitle, onButtonTap: onButtonTap)
+        errorView.setUI(
+            image: image, description: error.errorDescription!,
+            suggestion: error.recoverySuggestion!,
+            color: color, buttonTitle: buttonTitle, onButtonTap: onButtonTap
+        )
         errorView.isHidden = false
     }
     
@@ -40,12 +42,16 @@ extension UIViewController {
     }
     
     func showAlert(msg: String, sender: UIView) {
-        let alertController = UIAlertController(title:
-                                                    msg, message: nil,
-                                                preferredStyle: .alert)
+        let alertController = UIAlertController(
+            title: msg,
+            message: nil,
+            preferredStyle: .alert
+        )
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("errorAlert.okButton.title", comment: ""),
-                                         style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(
+            title: NSLocalizedString("errorAlert.okButton.title", comment: ""),
+            style: .cancel, handler: nil
+        )
         alertController.addAction(cancelAction)
         
         alertController.popoverPresentationController?.sourceView = sender
@@ -65,9 +71,11 @@ extension UIViewController {
     }
     
     func setExitButton(){
-        let exitButton = UIBarButtonItem(image: UIImage(named: "exit"),
-                                         style: UIBarButtonItem.Style.plain,
-                                         target: self, action: #selector(self.onExitTapped))
+        let exitButton = UIBarButtonItem(
+            image: UIImage(named: "exit"),
+            style: UIBarButtonItem.Style.plain,
+            target: self, action: #selector(self.onExitTapped)
+        )
         exitButton.tintColor = UIColor.white
         navigationItem.setRightBarButton(exitButton, animated: true)
     }
