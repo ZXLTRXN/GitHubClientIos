@@ -1,17 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Splash.pdf",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "splash.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
