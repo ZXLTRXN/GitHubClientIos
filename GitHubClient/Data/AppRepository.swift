@@ -35,7 +35,12 @@ class AppRepository {
                 completion(nil, error)
                 return
             }
-            completion(repoNetwork!.toRepo(), nil)
+            
+            guard let repoNetwork = repoNetwork else {
+                completion(nil, RequestError.unknown(statusCode: nil))
+                return
+            }
+            completion(repoNetwork.toRepo(), nil)
         }
     }
     
