@@ -8,7 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialActivityIndicator
 
-class AuthViewController: UIViewController, UITextFieldDelegate {
+class AuthViewController: UIViewController {
     
     @IBOutlet private weak var tokenTextField: UITextField!
     @IBOutlet private weak var errorLabel: UILabel!
@@ -17,7 +17,6 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     
     private let appRepo = AppRepository.shared
     
-    private let borderRadius: CGFloat = 8
     private var editState: EditState = .valid
     private var validationEnabled = false
     
@@ -39,9 +38,10 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     
     private func setUI() {
         tokenTextField.placeholder = NSLocalizedString("auth.tokenTextField.placeholder", comment: "")
+        tokenTextField.setBorderColor()
         
         signInButton.setTitle(NSLocalizedString("auth.signInButton.title", comment: ""), for: .normal)
-        signInButton.layer.cornerRadius = borderRadius
+        signInButton.layer.cornerRadius = 8
         signInButton.clipsToBounds = true
         signInButton.setTitleColor(signInButton.backgroundColor, for: .disabled)
         
@@ -77,21 +77,9 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK: textField
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        checkValidation(onValid: setIdleState)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        checkValidation(){
-            textField.removeBorder()
-        }
-    }
-    
     @IBAction private func editingChanged(_ sender: UITextField) {
         checkValidation(onValid: setIdleState)
     }
-    //
     
     private func checkValidation(onValid: () -> Void) {
         if validationEnabled {
@@ -123,16 +111,27 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setTokenErrorState(message: String) {
-        let redColor = UIColor(named: "ErrorRed")
-        tokenTextField.setBorderColor(redColor?.cgColor, borderRadius)
+        tokenTextField.setBorderColor(UIColor(named: "ErrorRed")?.cgColor)
         errorLabel.isHidden = false
         errorLabel.text = message
     }
     
     private func setIdleState() {
-        tokenTextField.setBorderColor(UIColor(named: "DefaultBlue")?.cgColor, borderRadius)
+        tokenTextField.setBorderColor(UIColor(named: "DefaultBlue")?.cgColor)
         errorLabel.isHidden = true
         errorLabel.text = nil
+    }
+}
+
+extension AuthViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        checkValidation(onValid: setIdleState)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        checkValidation(){
+            textField.setBorderColor()
+        }
     }
 }
 
