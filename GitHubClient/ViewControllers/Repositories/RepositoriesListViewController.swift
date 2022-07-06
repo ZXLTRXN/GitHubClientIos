@@ -8,7 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialActivityIndicator
 
-class RepositoriesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RepositoriesListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var errorView: ErrorView!
@@ -62,8 +62,9 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
         tableView.isHidden = true
         activityIndicator.show()
     }
-    
-    // MARK: - DataSource
+}
+
+extension RepositoriesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repos.count
     }
@@ -73,11 +74,11 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
         cell.setData(repo: repos[indexPath.row])
         return cell
     }
-    //
-    
+}
+
+extension RepositoriesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextViewController = RepositoryDetailInfoViewController(repo: repos[indexPath.row], nibName: "RepositoryDetailInfoViewController", bundle: nil)
         navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
 }
