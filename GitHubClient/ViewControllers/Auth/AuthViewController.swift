@@ -38,9 +38,9 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setUI() {
-        tokenTextField.placeholder = NSLocalizedString("TOKEN_PLACEHOLDER", comment: "")
+        tokenTextField.placeholder = NSLocalizedString("auth.tokenTextField.placeholder", comment: "")
         
-        signInButton.setTitle(NSLocalizedString("SIGN_IN_BUTTON", comment: ""), for: .normal)
+        signInButton.setTitle(NSLocalizedString("auth.signInButton.title", comment: ""), for: .normal)
         signInButton.layer.cornerRadius = borderRadius
         signInButton.clipsToBounds = true
         signInButton.setTitleColor(signInButton.backgroundColor, for: .disabled)
@@ -98,9 +98,9 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
             editState = validateToken(tokenTextField.text)
             switch (editState) {
             case .invalid:
-                setTokenErrorState(message: NSLocalizedString("INVALID_TOKEN", comment: ""))
+                setTokenErrorState(message: NSLocalizedString("auth.inputErrorLabel.invalidToken.title", comment: ""))
             case .empty:
-                setTokenErrorState(message: NSLocalizedString("EMPTY_TOKEN", comment: ""))
+                setTokenErrorState(message: NSLocalizedString("auth.inputErrorLabel.emptyToken.title", comment: ""))
             case .valid:
                 onValid()
             }

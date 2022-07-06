@@ -18,15 +18,15 @@ extension UIViewController {
         case .noRepositories:
             image = UIImage(named: "empty")!
             color = UIColor(named: "DefaultBlue")!
-            buttonTitle = NSLocalizedString("REFRESH", comment: "")
+            buttonTitle = NSLocalizedString("errorView.reloadButton.refresh.title", comment: "")
         case .noInternet:
             image = UIImage(named: "connectionError")!
             color = UIColor(named: "ErrorRed")!
-            buttonTitle = NSLocalizedString("RETRY", comment: "")
+            buttonTitle = NSLocalizedString("errorView.reloadButton.retry.title", comment: "")
         default:
             image = UIImage(named: "somethingError")!
             color = UIColor(named: "ErrorRed")!
-            buttonTitle = NSLocalizedString("RETRY", comment: "")
+            buttonTitle = NSLocalizedString("errorView.reloadButton.retry.title", comment: "")
         }
         
         errorView.setUI(image: image, description: error.errorDescription!,
@@ -44,7 +44,7 @@ extension UIViewController {
                                                     msg, message: nil,
                                                 preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+        let cancelAction = UIAlertAction(title: NSLocalizedString("errorAlert.okButton.title", comment: ""),
                                          style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
@@ -53,11 +53,11 @@ extension UIViewController {
     }
     
     func showAlert(for error: RequestError, sender: UIView){
-        var msg = NSLocalizedString("ERROR", comment: "")
+        var msg = NSLocalizedString("errorAlert.title", comment: "")
         switch error {
         case .unknown:
-            msg.append(contentsOf: "\n\(error.failureReason!)")
-            msg.append(contentsOf: NSLocalizedString("INFO_FOR_DEVELOPERS", comment: ""))
+            msg.append(contentsOf: "\n\(error.failureReason!) ")
+            msg.append(contentsOf: NSLocalizedString("errorAlert.text.informationForDevelopers", comment: ""))
         default:
             msg.append(contentsOf: "\n\(error.errorDescription!)\n\(error.recoverySuggestion!)")
         }

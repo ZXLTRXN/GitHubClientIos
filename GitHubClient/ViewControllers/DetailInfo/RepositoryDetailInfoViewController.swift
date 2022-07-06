@@ -74,7 +74,7 @@ class RepositoryDetailInfoViewController: UIViewController {
             self?.readmeActivityIndicator.hide()
             if let error = error {
                 if case .readmeNotFound = error {
-                    self?.readme.text = NSLocalizedString("NO_README", comment: "")
+                    self?.readme.text = error.errorDescription
                     self?.readme.isHidden = false
                     return
                 }
@@ -84,7 +84,7 @@ class RepositoryDetailInfoViewController: UIViewController {
             self?.hideErrorView(self?.readmeErrorView)
             self?.readme.isHidden = false
             guard let readme = readme else {
-                self?.readme.text = NSLocalizedString("EMPTY_README", comment: "")
+                self?.readme.text = NSLocalizedString("repoDetails.readmeLabel.emptyReadme.title", comment: "")
                 return
             }
             let md = SwiftyMarkdown(string: readme)
@@ -95,7 +95,7 @@ class RepositoryDetailInfoViewController: UIViewController {
     private func updateRepoUI(){
         title = repo.name
         link.text = repo.htmlUrl
-        license.text = repo.license ?? NSLocalizedString("EMPTY_LICENSE", comment: "")
+        license.text = repo.license ?? NSLocalizedString("repoDetails.licenseLabelWithValue.noLicense.title", comment: "")
         stars.text = "\(repo.stars)"
         forks.text = "\(repo.forks)"
         watchers.text = "\(repo.watchers)"
@@ -113,10 +113,10 @@ class RepositoryDetailInfoViewController: UIViewController {
         readmeActivityIndicator.setColor()
         readmeActivityIndicator.radius = 12
         
-        licenseLabel.text = NSLocalizedString("LICENSE_LABEL", comment: "")
-        starsLabel.text = NSLocalizedString("STARS_LABEL", comment: "")
-        forksLabel.text = NSLocalizedString("FORKS_LABEL", comment: "")
-        watchersLabel.text = NSLocalizedString("WATCHERS_LABEL", comment: "")
+        licenseLabel.text = NSLocalizedString("repoDetails.licenseLabel.title", comment: "")
+        starsLabel.text = NSLocalizedString("repoDetails.starsLabel.title", comment: "")
+        forksLabel.text = NSLocalizedString("repoDetails.forksLabel.title", comment: "")
+        watchersLabel.text = NSLocalizedString("repoDetails.watchersLabel.title", comment: "")
     }
     
     private func loadingStart(content: UIView, errorView: ErrorView, indicator: MDCActivityIndicator) {

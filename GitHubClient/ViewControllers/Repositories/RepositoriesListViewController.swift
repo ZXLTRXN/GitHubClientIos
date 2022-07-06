@@ -34,7 +34,7 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
         activityIndicator.setColor()
         activityIndicator.radius = 28
         
-        title = NSLocalizedString("REPOSITORIES_TITLE", comment: "")
+        title = NSLocalizedString("reposList.screenTitle", comment: "")
         navigationItem.backButtonTitle = ""
         setExitButton()
     }

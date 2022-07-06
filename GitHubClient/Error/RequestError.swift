@@ -21,17 +21,17 @@ extension RequestError : LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .noInternet:
-            return NSLocalizedString("NO_INTERNET", comment: "")
+            return NSLocalizedString("errorType.connectionError.description", comment: "")
         case .wrongToken:
-            return NSLocalizedString("WRONG_TOKEN", comment: "")
+            return NSLocalizedString("errorType.wrongToken.description", comment: "")
         case .noRights:
-            return NSLocalizedString("NO_RIGHTS", comment: "")
+            return NSLocalizedString("errorType.noRights.description", comment: "")
         case .readmeNotFound:
-            return NSLocalizedString("README_NOT_FOUND", comment: "")
+            return NSLocalizedString("errorType.readmeNotFound.description", comment: "")
         case .noRepositories:
-            return NSLocalizedString("EMPTY", comment: "")
+            return NSLocalizedString("errorType.noRepositories.description", comment: "")
         case .unknown:
-            return NSLocalizedString("UNKNOWN_ERROR", comment: "")
+            return NSLocalizedString("errorType.unknownError.description", comment: "")
         }
     }
     
@@ -48,17 +48,17 @@ extension RequestError : LocalizedError {
     public var recoverySuggestion: String? {
         switch self {
         case .noInternet:
-            return NSLocalizedString("NO_INTERNET_SUGGESTION", comment: "")
+            return NSLocalizedString("errorType.connectionError.suggestion", comment: "")
         case .wrongToken:
-            return NSLocalizedString("WRONG_TOKEN_SUGGESTION", comment: "")
+            return NSLocalizedString("errorType.wrongToken.suggestion", comment: "")
         case .noRights:
-            return NSLocalizedString("NO_RIGHTS_SUGGESTION", comment: "")
+            return NSLocalizedString("errorType.noRights.suggestion", comment: "")
         case .readmeNotFound:
-            return NSLocalizedString("README_NOT_FOUND_SUGGESTION", comment: "")
+            return NSLocalizedString("errorType.readmeNotFound.suggestion", comment: "")
         case .noRepositories:
-            return NSLocalizedString("NO_REPOSITORIES", comment: "")
+            return NSLocalizedString("errorType.noRepositories.suggestion", comment: "")
         case .unknown:
-            return NSLocalizedString("UNKNOWN_ERROR_SUGGESTION", comment: "")
+            return NSLocalizedString("errorType.unknownError.suggestion", comment: "")
         }
     }
 }

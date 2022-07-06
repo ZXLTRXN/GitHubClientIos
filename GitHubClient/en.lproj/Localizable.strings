@@ -7,31 +7,37 @@
   
 */
 
-"SIGN_IN_BUTTON" = "Sign In";
-"TOKEN_PLACEHOLDER" = "Personal access token";
-"INVALID_TOKEN" = "Invalid token";
-"EMPTY_TOKEN" = "Empty token";
-"REPOSITORIES_TITLE" = "Repositories";
+"auth.signInButton.title" = "Sign In";
+"auth.tokenTextField.placeholder" = "Personal access token";
+"auth.inputErrorLabel.invalidToken.title" = "Invalid token";
+"auth.inputErrorLabel.emptyToken.title" = "Empty token";
 
-"LICENSE_LABEL" = "License";
-"EMPTY_LICENSE" = "—";
-"FORKS_LABEL" = "forks";
-"STARS_LABEL" = "stars";
-"WATCHERS_LABEL" = "watchers";
-"NO_README" = "No README.md";
-"EMPTY_README" = "Empty README.md";
+"reposList.screenTitle" = "Repositories";
 
-"ERROR" = "Error";
-"INFO_FOR_DEVELOPERS" = "Information for developers";
-"OK" = "Ok";
-"NO_INTERNET" = "Connection error";
-"NO_INTERNET_SUGGESTION" = "Check your Internet connection";
-"WRONG_TOKEN" = "Wrong token";
-"WRONG_TOKEN_SUGGESTION" = "Check your token validity";
-"NO_RIGHTS" = "No rights";
-"NO_RIGHTS_SUGGESTION" = "Grant permissions for token";
-"EMPTY" = "Empty";
-"NO_REPOSITORIES" = "No repositories at the moment";
-"UNKNOWN_ERROR" = "Something error";
-"UNKNOWN_ERROR_SUGGESTION" = "Check your something";
+"repoDetails.licenseLabel.title" = "License";
+"repoDetails.licenseLabelWithValue.noLicense.title" = "—";
+"repoDetails.forksLabel.title" = "forks";
+"repoDetails.starsLabel.title" = "stars";
+"repoDetails.watchersLabel.title" = "watchers";
+"repoDetails.readmeLabel.emptyReadme.title" = "Empty README.md";
+
+"errorAlert.title" = "Error";
+"errorAlert.text.informationForDevelopers" = "Information for developers";
+"errorAlert.okButton.title" = "Ok";
+
+"errorType.connectionError.description" = "Connection error";
+"errorType.connectionError.suggestion" = "Check your Internet connection";
+"errorType.wrongToken.description" = "Wrong token";
+"errorType.wrongToken.suggestion" = "Check your token validity";
+"errorType.noRights.description" = "No rights";
+"errorType.noRights.suggestion" = "Grant permissions for token";
+"errorType.readmeNotFound.description" = "No README.md";
+"errorType.readmeNotFound.suggestion" = "Add README.md to the repository";
+"errorType.noRepositories.description" = "Empty";
+"errorType.noRepositories.suggestion" = "No repositories at the moment";
+"errorType.unknownError.description" = "Something error";
+"errorType.unknownError.suggestion" = "Check your something";
+
+"errorView.reloadButton.refresh.title" = "Refresh";
+"errorView.reloadButton.retry.title" = "Retry";
 }
