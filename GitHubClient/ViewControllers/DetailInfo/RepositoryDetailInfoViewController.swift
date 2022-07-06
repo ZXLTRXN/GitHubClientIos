@@ -12,18 +12,19 @@ import SwiftyMarkdown
 
 
 class RepositoryDetailInfoViewController: UIViewController {
-    @IBOutlet private weak var link: UILabel!
-    @IBOutlet private weak var license: UILabel!
-    @IBOutlet private weak var watchers: UILabel!
-    @IBOutlet private weak var forks: UILabel!
-    @IBOutlet private weak var stars: UILabel!
+    @IBOutlet private weak var linkLabel: UILabel!
+    
+    @IBOutlet private weak var licenseLabelWithValue: UILabel!
+    @IBOutlet private weak var watchersLabelWithValue: UILabel!
+    @IBOutlet private weak var forksLabelWithValue: UILabel!
+    @IBOutlet private weak var starsLabelWithValue: UILabel!
     
     @IBOutlet private weak var licenseLabel: UILabel!
     @IBOutlet private weak var starsLabel: UILabel!
     @IBOutlet private weak var watchersLabel: UILabel!
     @IBOutlet private weak var forksLabel: UILabel!
-    @IBOutlet private weak var readme: UILabel!
-    @IBOutlet private weak var content: UIStackView!
+    @IBOutlet private weak var readmeLabel: UILabel!
+    @IBOutlet private weak var contentStackView: UIStackView!
     
     @IBOutlet private weak var errorView: ErrorView!
     @IBOutlet private weak var readmeErrorView: ErrorView!
@@ -47,64 +48,64 @@ class RepositoryDetailInfoViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         getRepoInfo()
-        getReadme()
+        getReadmeAndUpdateUI()
     }
     
     private func getRepoInfo() {
-        loadingStart(content: content, errorView: errorView, indicator: activityIndicator)
+        loadingStart(content: contentStackView, errorView: errorView, indicator: activityIndicator)
         appRepo.getRepository(owner: repo.owner, repoName: repo.name) { [weak self] repo, error in
             self?.activityIndicator.hide()
             if let error = error {
-                self?.content.isHidden = true
+                self?.contentStackView.isHidden = true
                 self?.showErrorView(self?.errorView, error: error) { self?.getRepoInfo() }
                 return
             }
             self?.hideErrorView(self?.errorView)
             if let repo = repo {
                 self?.repo = repo
-                self?.updateRepoUI()
+                self?.updateRepoInfoUI()
             }
-            self?.content.isHidden = false
+            self?.contentStackView.isHidden = false
         }
     }
     
-    private func getReadme() {
-        loadingStart(content: readme, errorView: readmeErrorView, indicator: readmeActivityIndicator)
+    private func getReadmeAndUpdateUI() {
+        loadingStart(content: readmeLabel, errorView: readmeErrorView, indicator: readmeActivityIndicator)
         appRepo.getRepositoryReadme(owner: repo.owner, repoName: repo.name, branch: repo.branch){ [weak self] (readme, error) in
             self?.readmeActivityIndicator.hide()
             if let error = error {
                 if case .readmeNotFound = error {
-                    self?.readme.text = error.errorDescription
-                    self?.readme.isHidden = false
+                    self?.readmeLabel.text = error.errorDescription
+                    self?.readmeLabel.isHidden = false
                     return
                 }
-                self?.showErrorView(self?.readmeErrorView, error: error) { self?.getReadme() }
+                self?.showErrorView(self?.readmeErrorView, error: error) { self?.getReadmeAndUpdateUI() }
                 return
             }
             self?.hideErrorView(self?.readmeErrorView)
-            self?.readme.isHidden = false
+            self?.readmeLabel.isHidden = false
             guard let readme = readme else {
-                self?.readme.text = NSLocalizedString("repoDetails.readmeLabel.emptyReadme.title", comment: "")
+                self?.readmeLabel.text = NSLocalizedString("repoDetails.readmeLabel.emptyReadme.title", comment: "")
                 return
             }
             let md = SwiftyMarkdown(string: readme)
-            self?.readme.attributedText = md.attributedString()
+            self?.readmeLabel.attributedText = md.attributedString()
         }
     }
     
-    private func updateRepoUI(){
+    private func updateRepoInfoUI(){
         title = repo.name
-        link.text = repo.htmlUrl
-        license.text = repo.license ?? NSLocalizedString("repoDetails.licenseLabelWithValue.noLicense.title", comment: "")
-        stars.text = "\(repo.stars)"
-        forks.text = "\(repo.forks)"
-        watchers.text = "\(repo.watchers)"
+        linkLabel.text = repo.htmlUrl
+        licenseLabelWithValue.text = repo.license ?? NSLocalizedString("repoDetails.licenseLabelWithValue.noLicense.title", comment: "")
+        starsLabelWithValue.text = "\(repo.stars)"
+        forksLabelWithValue.text = "\(repo.forks)"
+        watchersLabelWithValue.text = "\(repo.watchers)"
     }
     
     private func setUI(){
         setExitButton()
         
-        link.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.linkPressed)))
+        linkLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.linkPressed)))
         
         activityIndicator.setColor()
         activityIndicator.radius = 28
@@ -125,7 +126,7 @@ class RepositoryDetailInfoViewController: UIViewController {
     }
     
     @IBAction private func linkPressed() {
-        if let url = URL(string: link.text!) {
+        if let url = URL(string: linkLabel.text!) {
             let safariViewController = SFSafariViewController(url: url)
             present(safariViewController, animated: true,
                     completion: nil)

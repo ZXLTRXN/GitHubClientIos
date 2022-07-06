@@ -13,21 +13,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositoryDetailInfoViewController" customModule="GitHubClient" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="FLv-sM-zfu" id="dfU-Zw-5Uf"/>
-                <outlet property="content" destination="T8x-CP-uF6" id="kao-Ir-XyZ"/>
+                <outlet property="contentStackView" destination="T8x-CP-uF6" id="kao-Ir-XyZ"/>
                 <outlet property="errorView" destination="CkY-uf-Foy" id="eUq-xM-hgG"/>
-                <outlet property="forks" destination="avF-5C-cmD" id="wcS-Ut-hyv"/>
                 <outlet property="forksLabel" destination="xbA-MV-Spx" id="Xdq-iz-F4i"/>
-                <outlet property="license" destination="lot-zU-gmD" id="I9t-yX-6Dc"/>
+                <outlet property="forksLabelWithValue" destination="avF-5C-cmD" id="wcS-Ut-hyv"/>
                 <outlet property="licenseLabel" destination="pus-vm-kik" id="qok-t9-CfK"/>
-                <outlet property="link" destination="MFX-NO-UDW" id="N9i-9a-rns"/>
-                <outlet property="readme" destination="IfS-Ul-Vdi" id="NmI-hR-Dme"/>
+                <outlet property="licenseLabelWithValue" destination="lot-zU-gmD" id="I9t-yX-6Dc"/>
+                <outlet property="linkLabel" destination="MFX-NO-UDW" id="N9i-9a-rns"/>
                 <outlet property="readmeActivityIndicator" destination="ey4-5i-v1E" id="iai-t9-xfw"/>
                 <outlet property="readmeErrorView" destination="nXX-KP-7gI" id="lKW-JY-Deb"/>
-                <outlet property="stars" destination="yTF-uD-vSJ" id="RYd-0x-gZy"/>
+                <outlet property="readmeLabel" destination="IfS-Ul-Vdi" id="NmI-hR-Dme"/>
                 <outlet property="starsLabel" destination="A7I-Ij-obo" id="4eC-iw-2SZ"/>
+                <outlet property="starsLabelWithValue" destination="yTF-uD-vSJ" id="RYd-0x-gZy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="watchers" destination="rbU-iT-vsk" id="gMw-oo-Lwg"/>
                 <outlet property="watchersLabel" destination="mbW-qo-6mq" id="N2m-Dm-DXp"/>
+                <outlet property="watchersLabelWithValue" destination="rbU-iT-vsk" id="gMw-oo-Lwg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

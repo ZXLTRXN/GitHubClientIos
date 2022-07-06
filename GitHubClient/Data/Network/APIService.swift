@@ -20,7 +20,7 @@ class APIService {
     
     private let sessionManager: Session = {
         let configuration = URLSessionConfiguration.af.default
-        configuration.timeoutIntervalForRequest = 7
+        configuration.timeoutIntervalForRequest = 4
         configuration.headers.add(HTTPHeader(name: "Accept", value: "application/vnd.github.v3+json"))
         return Session(configuration: configuration, interceptor: AuthInterceptor())
     }()
