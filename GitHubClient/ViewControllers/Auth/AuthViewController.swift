@@ -64,8 +64,8 @@ class AuthViewController: UIViewController {
             checkValidation(onValid: setIdleState)
         }
         if editState == .valid {
-            onLoading(started: true)
             guard let token = tokenTextField.text else { return }
+            onLoading(started: true)
             appRepo.signIn(token: token) {[weak self] error in
                 self?.onLoading(started: false)
                 guard let error = error else {
