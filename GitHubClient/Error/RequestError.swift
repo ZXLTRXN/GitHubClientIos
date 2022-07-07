@@ -42,13 +42,11 @@ extension RequestError : LocalizedError {
             if let statusCode = statusCode {
                 codeString = "\(statusCode)"
             }
-            let str = String(
+            return String(
                 format: NSLocalizedString("errorType.unknownError.failureReason", comment: ""),
                 "\(self.localizedDescription)",
                 codeString
             )
-            print(str)
-            return str
         default:
             return nil
         }

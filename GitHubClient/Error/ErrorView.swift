@@ -30,7 +30,6 @@ class ErrorView: UIView {
         addSubview(viewFromXib)
     }
     
-    
     func setUI(image: UIImage, description: String, suggestion: String, color: UIColor, buttonTitle: String, onButtonTap: @escaping() -> ()) {
         imageView.image = image
         descriptionLabel.text = description
@@ -43,7 +42,4 @@ class ErrorView: UIView {
         
         reloadButton.addAction(onButtonTap)
     }
-    
-    
-    
 }

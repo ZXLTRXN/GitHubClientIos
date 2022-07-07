@@ -21,8 +21,8 @@ class ColorManager {
     }
     
     func getColor(for language: String?) -> String {
-        let color: String = UIColor(named: "DefaultLanguage")!.toHex()!
-        guard let language = language else { return color }
-        return colors[language] ?? color
+        let defaultLanguageColor: String = UIColor(named: "DefaultLanguage")!.toHex()!
+        guard let language = language else { return defaultLanguageColor }
+        return colors[language] ?? defaultLanguageColor
     }
 }

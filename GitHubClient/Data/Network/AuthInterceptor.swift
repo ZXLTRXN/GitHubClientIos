@@ -10,8 +10,8 @@ import Alamofire
 
 class AuthInterceptor: RequestInterceptor {
     
-    let retryLimit = 3
-    let retryDelay: TimeInterval = 5
+    private let retryLimit = 3
+    private let retryDelay: TimeInterval = 5
     
     func adapt(
         _ urlRequest: URLRequest,
