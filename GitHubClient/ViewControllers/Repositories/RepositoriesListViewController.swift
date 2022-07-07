@@ -29,7 +29,7 @@ class RepositoriesListViewController: UIViewController {
     }
     
     private func setUI() {
-        tableView.register(UINib(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UINib(nibName: String(describing: RepositoryTableViewCell.self), bundle: nil), forCellReuseIdentifier: cellIdentifier)
         
         activityIndicator.setColor()
         activityIndicator.radius = 28
@@ -78,7 +78,7 @@ extension RepositoriesListViewController: UITableViewDataSource {
 
 extension RepositoriesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextViewController = RepositoryDetailInfoViewController(repo: repos[indexPath.row], nibName: "RepositoryDetailInfoViewController", bundle: nil)
+        let nextViewController = RepositoryDetailInfoViewController(repo: repos[indexPath.row], nibName: String(describing: RepositoryDetailInfoViewController.self), bundle: nil)
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
