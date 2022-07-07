@@ -98,7 +98,7 @@ class AuthViewController: UIViewController {
     }
     
     private func validateToken(_ token: String?) -> EditState {
-        if token == nil || token == "" {
+        guard token?.isEmpty == false else {
             return .empty
         }
         let regularExpression = "[A-Za-z0-9_]{20,40}"
